@@ -2,8 +2,7 @@ package steakstore;
 
 import java.util.ArrayList;
 
-public class Restaurant 
-{
+public class Restaurant {
 	private String name;
 	private String location;
 	private String contact;
@@ -12,10 +11,8 @@ public class Restaurant
 	private ArrayList<Filter> searchTerms;
 	private ArrayList<Review> reviews;
 	private User author;
-	
-	public Restaurant(String name, String location, String contact, String website,
-			String menu, User author)
-	{
+
+	public Restaurant(String name, String location, String contact, String website, String menu, User author) {
 		this.name = name;
 		this.location = location;
 		this.contact = contact;
@@ -23,14 +20,24 @@ public class Restaurant
 		this.menu = menu;
 		this.author = author;
 	}
-	
-	public void addReview(Review r)
-	{
+
+	/**
+	 * Adds a review to the list of reviews for the Restaurant
+	 * 
+	 * @param r The review that is going to be added
+	 */
+	public void addReview(Review r) {
 		reviews.add(r);
 	}
-	
-	public String getInfo()
-	{
+
+	/**
+	 * Returns a summary of the restuarant's information, including location, name,
+	 * contact, website, and menu.
+	 * 
+	 * @return The summary of the restuarant's information, including location,
+	 *         name, contact, website, and menu.
+	 */
+	public String getInfo() {
 		return location + " " + name + " " + contact + " " + website + " " + menu;
 	}
 }

@@ -1,6 +1,5 @@
 package steakstore;
 
-public class Filter 
-{
+public class Filter {
 	String term;
 }
