@@ -40,4 +40,17 @@ public class Restaurant {
 	public String getInfo() {
 		return location + " " + name + " " + contact + " " + website + " " + menu;
 	}
+	
+		/**
+	 * Averages all the review scores
+	 * 
+	 * @return The average of all the review scores
+	 */
+	double getAverageScore() {
+		double avg = 0.0;
+		for(int i = 0; i < reviews.size(); i++)
+			avg += reviews.get(i).getScore;
+		avg /= reviews.size();
+		return avg;
+	}
 }
