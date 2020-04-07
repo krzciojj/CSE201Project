@@ -5,14 +5,12 @@ public class Submission {
 	Restaurant restaurant;
 	User author;
 
-	/**
-	 * Adds the restaurant to the submission form
-	 * 
-	 * @param r The restaurant that will be added to the submission form
-	 */
-	void addRestaurant(Restaurant r) {
-		restaurant = r;
+	public Submission (Restaurant restaurant, User author) {
+		this.restaurant = restaurant;
+		this.author = author;
+		status = 0;
 	}
+	
 
 	/**
 	 * Returns the status of the submission form

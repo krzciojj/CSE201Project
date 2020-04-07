@@ -19,7 +19,7 @@ class RestaurantTest {
 		User john = new User("john", "Jacob", "jingle");
 		Restaurant wendys = new Restaurant("Wendys", "Oxford", "John", "www.wendys.com", "menu", john);
 
-		Review r = new Review();
+		Review r = new Review(0, "null", john);
 		wendys.addReview(r);
 
 		// Getters and setters will help me test this better
