@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="341.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steakstore.GUI">
+<AnchorPane prefHeight="341.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="steakstore.LoginController">
    <children>
       <TextField layoutX="150.0" layoutY="124.0" promptText="Username" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-      <Button alignment="CENTER" defaultButton="true" layoutX="150.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Login" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
+      <Button fx:id="loginButton" alignment="CENTER" defaultButton="true" layoutX="150.0" layoutY="201.0" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="25.0" prefWidth="149.0" text="Login" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
       <Label alignment="CENTER" layoutX="186.0" layoutY="56.0" text="LOGIN" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Segoe UI" size="26.0" />

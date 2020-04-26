@@ -23,7 +23,7 @@ public class Submission {
 		if (restaurant == null)
 			return "Restaurant does not exist";
 		else
-			return "aaaaaa";
+			return "Accepted";
 
 	}
 }
