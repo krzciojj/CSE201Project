@@ -13,6 +13,8 @@ public class GUI extends Application
 	@FXML
 	Parent layout1;
 	Parent layout2;
+	Parent layout3;
+	Parent layout4;
 	Scene scene;
     Scene store;
     Stage window;
@@ -26,6 +28,8 @@ public class GUI extends Application
 		window = primaryStage;
 		layout1 = FXMLLoader.load(getClass().getResource("login.fxml"));
 		layout2 = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		layout3 = FXMLLoader.load(getClass().getResource("catalog.fxml"));
+		layout4 = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
         scene = new Scene(layout1, 500, 400);
         store = new Scene(layout2, 1000, 500);
         window.setTitle("SteakStore");
