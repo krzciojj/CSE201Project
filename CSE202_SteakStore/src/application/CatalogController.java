@@ -9,14 +9,5 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class CatalogController {
-	@FXML
-	Button b1;
-	Button b2;
 	
-	public void catalogButtonClick() throws Exception
-	{
-		Parent root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
-		
-		b1.getScene().setRoot(root);
-	}
 }
