@@ -1,12 +1,15 @@
 package application;
 	
 import javafx.application.Application;
+import application.Controller;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 
 public class Main extends Application{
@@ -19,39 +22,10 @@ public class Main extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
 		primaryStage.setTitle("Steak Store");
-		
-		button = new Button();
-		button.setText("Wendys");
-		
-		StackPane layout = new StackPane();
-		StackPane layout2 = new StackPane();
-		
-		layout.getChildren().add(button);
-		
-		Scene inside = new Scene(layout2, 1000, 800);		
-		Scene restuarunt = new Scene(layout, 300, 250);
-		
-		primaryStage.setScene(restuarunt);
-		primaryStage.show();
-		
-		
-		button.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				primaryStage.setTitle("Wendys");
-				primaryStage.setScene(inside);
-				primaryStage.show();
-				
-				
-			}
-			
-		});
-		
-		
-		
-		
-		
+		primaryStage.setScene(new Scene(root, 500, 275));
+		primaryStage.show();		
 
 	}
 
