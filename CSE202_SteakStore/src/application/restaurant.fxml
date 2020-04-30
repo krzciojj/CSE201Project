@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="271.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="restaurant name" />
+      <Text layoutX="221.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wendy's">
+         <font>
+            <Font size="46.0" />
+         </font></Text>
+      <Text layoutX="149.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="149.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5142 College Corner Pike, Oxford, OH 45056" />
+      <Text layoutX="149.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="149.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6:30AM - 9:30PM" />
+      <ImageView fitHeight="164.0" fitWidth="289.0" layoutX="163.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/2018-01-17.jpg" />
+         </image>
+      </ImageView>
+      <SVGPath content="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" layoutX="189.0" layoutY="346.0" />
+      <SVGPath content="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" layoutX="221.0" layoutY="345.0" />
+      <SVGPath content="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" layoutX="283.0" layoutY="345.0" />
+      <SVGPath content="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" layoutX="251.0" layoutY="346.0" />
+      <SVGPath content="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z" fill="#aeaeae" layoutX="315.0" layoutY="344.0" />
+      <Button layoutX="26.0" layoutY="188.0" mnemonicParsing="false" text="See Menu (PDF)" />
    </children>
 </Pane>

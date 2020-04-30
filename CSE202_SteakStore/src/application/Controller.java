@@ -45,9 +45,17 @@ public class Controller {
 	// Login Controller
 	@FXML
 	Button loginButton;
+	@FXML
+	Button goBackButton;
 	
 	public void loginButtonClick() throws Exception
 	{
 		
+	}
+	
+	public void goBackButtonClick() throws Exception
+	{
+		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		goBackButton.getScene().setRoot(root);
 	}
 }

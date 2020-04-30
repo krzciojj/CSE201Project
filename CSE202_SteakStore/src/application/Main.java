@@ -24,9 +24,8 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
 		primaryStage.setTitle("Steak Store");
-		primaryStage.setScene(new Scene(root, 500, 275));
-		primaryStage.show();		
-
+		primaryStage.setScene(new Scene(root, 600, 400));
+		primaryStage.show();
 	}
 
 	
