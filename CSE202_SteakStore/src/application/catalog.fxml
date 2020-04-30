@@ -16,8 +16,8 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="b1" mnemonicParsing="false" onAction="#catalogButtonClick" prefHeight="193.0" prefWidth="347.0" text="Wendy's" />
-      <Button fx:id="b2" mnemonicParsing="false" onAction="#catalogButtonClick" prefHeight="363.0" prefWidth="549.0" text="McDonalds" GridPane.columnIndex="1" />
+      <Button fx:id="b1" mnemonicParsing="false" onAction="#restaurantButtonClick" prefHeight="193.0" prefWidth="347.0" text="Wendy's" />
+      <Button fx:id="b2" mnemonicParsing="false" onAction="#restaurantButtonClick" prefHeight="363.0" prefWidth="549.0" text="McDonalds" GridPane.columnIndex="1" />
       <Button mnemonicParsing="false" prefHeight="354.0" prefWidth="627.0" text="Pulley's" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" prefHeight="330.0" prefWidth="467.0" text="Skipper's Pub" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" prefHeight="339.0" prefWidth="546.0" text="Brick Street Bar &amp; Grill" GridPane.rowIndex="2" />

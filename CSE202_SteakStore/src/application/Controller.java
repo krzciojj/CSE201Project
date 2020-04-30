@@ -9,23 +9,45 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class Controller {
-	@FXML
-	Button testButton;
 	
-	public void testButtonClick() throws Exception
+	// Landing Page Controller
+	@FXML
+	Button openCatalogButton;
+	@FXML
+	Button openLoginButton;
+	
+	public void openCatalogButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("catalog.fxml"));
-		testButton.getScene().setRoot(root);
+		openCatalogButton.getScene().setRoot(root);
 	}
 	
+	public void openLoginButtonClick() throws Exception
+	{
+		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		openLoginButton.getScene().setRoot(root);
+	}
+	
+	
+	// Catalog Controller
 	@FXML
 	Button b1;
+	@FXML
 	Button b2;
 	
-	public void catalogButtonClick() throws Exception
+	public void restaurantButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
 		
 		b1.getScene().setRoot(root);
+	}
+	
+	// Login Controller
+	@FXML
+	Button loginButton;
+	
+	public void loginButtonClick() throws Exception
+	{
+		
 	}
 }
