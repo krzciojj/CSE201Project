@@ -1,5 +1,7 @@
 package steakstore;
 
+import java.util.Scanner;
+
 public class User 
 {
 	private String username;
@@ -18,5 +20,24 @@ public class User
 	public boolean makeSubmission(Submission s)
 	{
 		return false;
+	}
+	
+	public void changeInformation(String item, String changed) 
+	{
+		
+		if (item.equalsIgnoreCase("username")) 
+		{
+			username = changed;
+			
+		} else if (item.equalsIgnoreCase("password"))
+		{
+			password = changed;
+			
+		} else if (item.equalsIgnoreCase("email"))
+		{
+			email = changed;
+		}
+		
+		
 	}
 }
