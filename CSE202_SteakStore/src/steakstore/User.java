@@ -1,6 +1,7 @@
 package steakstore;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class User implements Serializable
 {
@@ -20,5 +21,25 @@ public class User implements Serializable
 	public boolean makeSubmission(Submission s)
 	{
 		return false;
+	}
+	
+
+	public void changeInformation(String item, String changed) 
+	{
+
+		if (item.equalsIgnoreCase("username")) 
+		{
+			username = changed;
+
+		} else if (item.equalsIgnoreCase("password"))
+		{
+			password = changed;
+
+		} else if (item.equalsIgnoreCase("email"))
+		{
+			email = changed;
+		}
+
+
 	}
 }
