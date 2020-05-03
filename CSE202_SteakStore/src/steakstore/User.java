@@ -1,8 +1,8 @@
 package steakstore;
 
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class User 
+public class User implements Serializable
 {
 	private String username;
 	private String password;
@@ -20,24 +20,5 @@ public class User
 	public boolean makeSubmission(Submission s)
 	{
 		return false;
-	}
-	
-	public void changeInformation(String item, String changed) 
-	{
-		
-		if (item.equalsIgnoreCase("username")) 
-		{
-			username = changed;
-			
-		} else if (item.equalsIgnoreCase("password"))
-		{
-			password = changed;
-			
-		} else if (item.equalsIgnoreCase("email"))
-		{
-			email = changed;
-		}
-		
-		
 	}
 }
