@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 @SuppressWarnings("serial")
 public class Main extends Application implements Serializable{
 	
+	
 	Button button;
 	private static final long serialVersionUID = 0;
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
@@ -107,8 +108,10 @@ public class Main extends Application implements Serializable{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		Scene scene = new Scene(root,600,400);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setTitle("Steak Store");
-		primaryStage.setScene(new Scene(root, 600, 400));
+		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 

@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane fx:id="background" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <Pane prefHeight="100.0" prefWidth="100.0">
          <children>
             <Button fx:id="returnToLoginButton" layoutX="250.0" layoutY="75.0" mnemonicParsing="false" onAction="#returnToLoginButtonClick" text="Return To Login" />
-            <Label layoutX="240.0" layoutY="28.0" prefHeight="35.0" prefWidth="128.0" text="Registration Complete!" />
+            <Label fx:id="titleText" layoutX="240.0" layoutY="28.0" prefHeight="35.0" prefWidth="128.0" text="Registration Complete!" />
          </children>
       </Pane>
    </children>
