@@ -75,6 +75,16 @@ public class Main extends Application implements Serializable{
 		
 	}
 	
+	public static void addUser(User u)
+	{
+		try (FileOutputStream fileOut = new FileOutputStream("users.dat");
+	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+			objectOut.writeObject(u);
+		} catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
 	public static void createRestaurantData()
 	{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
