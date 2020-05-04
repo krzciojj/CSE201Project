@@ -13,6 +13,7 @@ import javafx.stage.Window;
 
 public class Controller {
 	
+	
 	// Landing Page Controller
 	@FXML
 	Button openCatalogButton;
@@ -54,9 +55,17 @@ public class Controller {
 	Button returnButton;
 	@FXML
 	Button menuButton;
+	@FXML
+	Button registerButton;
 	
+	public void registerButtonClick() throws Exception {
+		Parent register = FXMLLoader.load(getClass().getResource("register.fxml"));
+		registerButton.getScene().setRoot(register);
+	}
 	public void loginButtonClick() throws Exception
 	{
+		Parent login = FXMLLoader.load(getClass().getResource("catalog.fxml"));
+		loginButton.getScene().setRoot(login);
 		
 	}
 	

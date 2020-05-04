@@ -29,6 +29,7 @@ import javafx.scene.control.Button;
 public class Main extends Application implements Serializable{
 	
 	Button button;
+	private static final long serialVersionUID = 0;
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 	public static ArrayList<User> users = new ArrayList<User>();
 	public static void main(String[] args) throws ClassNotFoundException, IOException 
@@ -47,7 +48,18 @@ public class Main extends Application implements Serializable{
 	
 	public static void readRestaurantData() throws IOException, ClassNotFoundException
 	{
+//		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
+//		while(true)
+//		{
+//			try {
+//			restaurants.add((Restaurant) objectData.readObject());
+//			} catch(EOFException e) {
+//				return;
+//				//objectData.close();
+//			}
+//		}
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
+		while(objectData.available() != 0)
 		while(true)
 		{
 			try {
