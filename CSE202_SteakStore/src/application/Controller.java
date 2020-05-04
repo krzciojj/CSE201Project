@@ -78,7 +78,9 @@ public class Controller {
 		ImageView view = new ImageView(menus);
 		
 		menu.getChildren().add(view);
-		
-		menuButton.getScene().setRoot(menu);
+        Stage stage = new Stage();
+        stage.setTitle("Menu");
+        stage.setScene(new Scene(menu, 700, 600));
+        stage.show();
 	}
 }
