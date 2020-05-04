@@ -24,22 +24,50 @@ public class User implements Serializable
 	}
 	
 
-	public void changeInformation(String item, String changed) 
+	public boolean changeInformation(String username, String password, String email) 
 	{
-
-		if (item.equalsIgnoreCase("username")) 
-		{
-			username = changed;
-
-		} else if (item.equalsIgnoreCase("password"))
-		{
-			password = changed;
-
-		} else if (item.equalsIgnoreCase("email"))
-		{
-			email = changed;
+		boolean flag = false;
+		
+		if (username != null) {
+			this.username = username;
+			flag = true;
 		}
-
+		if (password != null) {
+			this.password = password;
+			flag = true;
+		}
+		if (email != null) {
+			this.email = email;
+			flag = true;
+		}
+		
+		return flag;
 
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	private void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	private void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	private void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 }
