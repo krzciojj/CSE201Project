@@ -1,16 +1,21 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class RestaurantController {
+public class RestaurantController extends CatalogController implements Initializable {
 
 	@FXML
 	Button returnButton;
@@ -32,5 +37,21 @@ public class RestaurantController {
 		stage.setTitle("Menu");
 		stage.setScene(new Scene(menu, 700, 600));
 		stage.show();
+	}
+
+	@FXML
+	Text titleText;
+	@FXML
+	Text locationText;
+	@FXML
+	Text hoursText;
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		if(currentRestaurant != null) {
+			titleText.setText(currentRestaurant.getInfo()[0]);
+			locationText.setText(currentRestaurant.getInfo()[1]);
+			hoursText.setText(currentRestaurant.getInfo()[2]);
+		}
 	}
 }

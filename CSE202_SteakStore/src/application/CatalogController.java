@@ -18,12 +18,15 @@ public class CatalogController extends Main implements Initializable {
 
 	@FXML
 	ListView<String> catalog;
+	
+	public static Restaurant currentRestaurant;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		currentRestaurant = null;
+		
 		for(Restaurant restaurant : restaurants) {
-			System.out.println(restaurant.getInfo()[0]);
 			catalog.getItems().add(restaurant.getInfo()[0]);
 		}
 		
@@ -33,9 +36,11 @@ public class CatalogController extends Main implements Initializable {
 			public void handle(MouseEvent arg0) {
 				Parent root = null;
 				try {
-					root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
-					catalog.getScene().setRoot(root);
-					//catalog.getSelectionModel().getSelectedItem()
+					if(catalog.getSelectionModel().getSelectedItem() != null) {
+						currentRestaurant = restaurants.get(catalog.getSelectionModel().getSelectedIndex());
+						root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
+						catalog.getScene().setRoot(root);
+					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
