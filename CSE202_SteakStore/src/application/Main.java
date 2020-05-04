@@ -57,7 +57,6 @@ public class Main extends Application implements Serializable{
 				//objectData.close();
 			}
 		}
-		
 	}
 	
 	public static void readUserData() throws IOException, ClassNotFoundException
@@ -72,7 +71,6 @@ public class Main extends Application implements Serializable{
 				//objectData.close();
 			}
 		}
-		
 	}
 	
 	public static void addUser(User u)
