@@ -12,7 +12,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import application.Controller;
 import javafx.stage.Stage;
 import steakstore.Restaurant;
 import steakstore.User;
@@ -48,18 +47,7 @@ public class Main extends Application implements Serializable{
 	
 	public static void readRestaurantData() throws IOException, ClassNotFoundException
 	{
-//		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
-//		while(true)
-//		{
-//			try {
-//			restaurants.add((Restaurant) objectData.readObject());
-//			} catch(EOFException e) {
-//				return;
-//				//objectData.close();
-//			}
-//		}
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
-		while(objectData.available() != 0)
 		while(true)
 		{
 			try {
@@ -92,9 +80,9 @@ public class Main extends Application implements Serializable{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
-	            Restaurant test = new Restaurant("asfda", "asfda", "asfda", "asfda", "asfda", testuser);
-	            Restaurant test2 = new Restaurant("aa", "aaa", "aasdfsa", "a1423423a", "a23423a", testuser);
-	            Restaurant test3 = new Restaurant("bb", "aaa", "aasdfsa", "a1523423a", "a23423a", testuser);
+	            Restaurant test = new Restaurant("asfda", "asfda", "asfda", "asfda", "asfda", "asfda", testuser);
+	            Restaurant test2 = new Restaurant("aa", "aaa", "aasdfsa", "a1423423a", "a1423423a", "a23423a", testuser);
+	            Restaurant test3 = new Restaurant("bb", "a1423423a", "aaa", "aasdfsa", "a1523423a", "a23423a", testuser);
 	            
 	            objectOut.writeObject(test);
 	            objectOut.writeObject(test2);

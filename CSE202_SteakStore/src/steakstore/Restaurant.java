@@ -3,9 +3,10 @@ package steakstore;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Restaurant implements Serializable{
+public class Restaurant implements Serializable {
 	private String name;
 	private String location;
+	private String hours;
 	private String contact;
 	private String website;
 	private String menu;
@@ -13,9 +14,10 @@ public class Restaurant implements Serializable{
 	private ArrayList<Review> reviews;
 	private User author;
 
-	public Restaurant(String name, String location, String contact, String website, String menu, User author) {
+	public Restaurant(String name, String location, String hours, String contact, String website, String menu, User author) {
 		this.name = name;
 		this.location = location;
+		this.hours = hours;
 		this.contact = contact;
 		this.website = website;
 		this.menu = menu;
@@ -32,16 +34,17 @@ public class Restaurant implements Serializable{
 	}
 
 	/**
-	 * Returns a summary of the restuarant's information, including location, name,
-	 * contact, website, and menu.
+	 * Returns an array containing the restuarant's information, including name,
+	 * location, hours, contact, website, and menu, in this order.
 	 * 
-	 * @return The summary of the restuarant's information, including location,
-	 *         name, contact, website, and menu.
+	 * @return The array containing the restuarant's information, including name,
+	 *         location, contact, hours website, and menu, in this order.
 	 */
-	public String getInfo() {
-		return location + " " + name + " " + contact + " " + website + " " + menu;
+	public String[] getInfo() {
+		String[] info = { name, location, hours, contact, website, menu };
+		return info;
 	}
-	
+
 	/**
 	 * Averages all the review scores for the restaurant
 	 * 
@@ -49,7 +52,7 @@ public class Restaurant implements Serializable{
 	 */
 	double getAverageScore() {
 		double avg = 0.0;
-		for(int i = 0; i < reviews.size(); i++)
+		for (int i = 0; i < reviews.size(); i++)
 			avg += reviews.get(i).getScore();
 		avg /= reviews.size();
 		return avg;
