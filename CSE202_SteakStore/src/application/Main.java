@@ -80,9 +80,9 @@ public class Main extends Application implements Serializable{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
-	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "asfda", "asfda", "asfda", "asfda", testuser);
-	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "aasdfsa", "a1423423a", "a1423423a", "a23423a", testuser);
-	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "aaa", "aasdfsa", "a1523423a", "a23423a", testuser);
+	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "asfda", "asfda", "asfda", testuser);
+	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "a23423a", testuser);
+	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a", "a23423a", testuser);
 	            
 	            objectOut.writeObject(test);
 	            objectOut.writeObject(test2);
