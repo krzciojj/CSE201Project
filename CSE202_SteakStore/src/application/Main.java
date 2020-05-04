@@ -12,7 +12,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import application.Controller;
 import javafx.stage.Stage;
 import steakstore.Restaurant;
 import steakstore.User;
@@ -48,18 +47,7 @@ public class Main extends Application implements Serializable{
 	
 	public static void readRestaurantData() throws IOException, ClassNotFoundException
 	{
-//		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
-//		while(true)
-//		{
-//			try {
-//			restaurants.add((Restaurant) objectData.readObject());
-//			} catch(EOFException e) {
-//				return;
-//				//objectData.close();
-//			}
-//		}
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
-		while(objectData.available() != 0)
 		while(true)
 		{
 			try {

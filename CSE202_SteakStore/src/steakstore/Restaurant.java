@@ -3,7 +3,7 @@ package steakstore;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Restaurant implements Serializable{
+public class Restaurant implements Serializable {
 	private String name;
 	private String location;
 	private String contact;
@@ -32,16 +32,17 @@ public class Restaurant implements Serializable{
 	}
 
 	/**
-	 * Returns a summary of the restuarant's information, including location, name,
-	 * contact, website, and menu.
+	 * Returns an array containing the restuarant's information, including location,
+	 * name, contact, website, and menu, in this order.
 	 * 
-	 * @return The summary of the restuarant's information, including location,
-	 *         name, contact, website, and menu.
+	 * @return The array containing the restuarant's information, including
+	 *         location, name, contact, website, and menu, in this order.
 	 */
-	public String getInfo() {
-		return location + " " + name + " " + contact + " " + website + " " + menu;
+	public String[] getInfo() {
+		String[] info = { location, name, contact, website, menu };
+		return info;
 	}
-	
+
 	/**
 	 * Averages all the review scores for the restaurant
 	 * 
@@ -49,7 +50,7 @@ public class Restaurant implements Serializable{
 	 */
 	double getAverageScore() {
 		double avg = 0.0;
-		for(int i = 0; i < reviews.size(); i++)
+		for (int i = 0; i < reviews.size(); i++)
 			avg += reviews.get(i).getScore();
 		avg /= reviews.size();
 		return avg;

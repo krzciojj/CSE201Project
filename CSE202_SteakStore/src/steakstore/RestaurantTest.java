@@ -32,7 +32,7 @@ class RestaurantTest {
 		User john = new User("john", "Jacob", "jingle");
 		Restaurant wendys = new Restaurant("Wendys", "Oxford", "John", "www.wendys.com", "menu", john);
 
-		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo());
+		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo()[0] + " " + wendys.getInfo()[1] + " " + wendys.getInfo()[2] + " " + wendys.getInfo()[3] + " " + wendys.getInfo()[4]);
 	}
 
 	// we need to add getters and setters
