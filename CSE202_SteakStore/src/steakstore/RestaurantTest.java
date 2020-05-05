@@ -9,7 +9,7 @@ class RestaurantTest {
 	@Test
 	void testRestaurant() {
 		User john = new User("john", "Jacob", "jingle");
-		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john);
+		Restaurant wendys = new Restaurant("Wendys", "Oxford", "John", "www.wendys.com", "menu", john);
 
 		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo());
 	}
@@ -17,7 +17,7 @@ class RestaurantTest {
 	@Test
 	void testAddReview() {
 		User john = new User("john", "Jacob", "jingle");
-		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john);
+		Restaurant wendys = new Restaurant("Wendys", "Oxford", "John", "www.wendys.com", "menu", john);
 
 		Review r = new Review(0, "null", john);
 		wendys.addReview(r);
@@ -30,9 +30,9 @@ class RestaurantTest {
 	@Test
 	void testGetInfo() {
 		User john = new User("john", "Jacob", "jingle");
-		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john);
+		Restaurant wendys = new Restaurant("Wendys", "Oxford", "John", "www.wendys.com", "menu", john);
 
-		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo()[0] + " " + wendys.getInfo()[1] + " " + wendys.getInfo()[2] + " " + wendys.getInfo()[3] + " " + wendys.getInfo()[4] + " " + wendys.getInfo()[5]);
+		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo());
 	}
 
 	// we need to add getters and setters
