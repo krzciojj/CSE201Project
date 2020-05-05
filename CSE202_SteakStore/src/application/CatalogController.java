@@ -30,10 +30,15 @@ public class CatalogController extends Main implements Initializable {
 	TextField searchBar;
 	@FXML
 	ListView<String> filterList;
+	@FXML
+	Button userProfileButton;
 
 	Restaurant currentRestaurant;
 
-
+	public void userProfileButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+		userProfileButton.getScene().setRoot(root);
+	}
 	public void searchButtonClick() {
 		catalog.getItems().clear();
 		for(String term : filterList.getSelectionModel().getSelectedItems()) {
