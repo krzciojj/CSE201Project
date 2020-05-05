@@ -2,7 +2,6 @@ package application;
 	
 import javafx.application.Application;
 
-import steakstore.Filter;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,9 +24,7 @@ import javafx.scene.control.Button;
 public class Main extends Application implements Serializable{
 	
 	
-	
 	Button button;
-	public static ArrayList<Filter> filters = new ArrayList<Filter>();
 	private static final long serialVersionUID = 0;
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 	public static ArrayList<User> users = new ArrayList<User>();
@@ -120,21 +117,6 @@ public class Main extends Application implements Serializable{
 		primaryStage.setTitle("Steak Store");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-	}
-	
-	
-	public static void readFilterData() throws IOException, ClassNotFoundException
-	{
-		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
-		while(true)
-		{
-			try {
-			filters.add((Filter) objectData.readObject());
-			} catch(EOFException e) {
-				return;
-				//objectData.close();
-			}
-		}
 	}
 
 	
