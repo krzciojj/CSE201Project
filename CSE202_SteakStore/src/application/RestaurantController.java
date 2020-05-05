@@ -31,19 +31,23 @@ public class RestaurantController extends CatalogController implements Initializ
 	}
 
 	public void seeMenuButtonClick() throws Exception {
-		HBox menu = new HBox();
-		Image menus = new Image("menu.jpg");
-		ImageView view = new ImageView(menus);
+		if (currentRestaurant != null) {
+			HBox menu = new HBox();
+			Image menus = new Image(currentRestaurant.getInfo()[5]);
+			ImageView view = new ImageView(menus);
 
-		menu.getChildren().add(view);
-		Stage stage = new Stage();
-		stage.setTitle("Menu");
-		stage.setScene(new Scene(menu, 700, 600));
-		stage.show();
+			menu.getChildren().add(view);
+			Stage stage = new Stage();
+			stage.setTitle("Menu");
+			stage.setScene(new Scene(menu, 700, 600));
+			stage.show();
+		}
 	}
 	
 	public void sendToContact() throws Exception {
-		getHostServices().showDocument(currentRestaurant.getInfo()[3]);
+		if (currentRestaurant != null) {
+			getHostServices().showDocument(currentRestaurant.getInfo()[3]);
+		}
 	}
 
 	@FXML
