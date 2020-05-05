@@ -35,7 +35,7 @@ public class RegistrationController extends Main{
 	}
 	
 	public void registerButtonClick() throws Exception {
-		if(name.getText() != null && email.getText() != null && password.getText() != null)
+		if(!name.getText().equals("") && !email.getText().equals("") && !password.getText().equals(""))
 		{
 			User newUser = new User (name.getText(), password.getText(), email.getText());
 			addUser(newUser);
@@ -44,6 +44,7 @@ public class RegistrationController extends Main{
 		}
 		else
 		{
+			System.out.println("fails");
 			//implement error message here once i figure out how to make a pop up window
 		}
 			
