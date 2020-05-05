@@ -92,8 +92,8 @@ public class Main extends Application implements Serializable{
 	
 	public static void addUser(User u)
 	{
-		try (FileOutputStream fileOut = new FileOutputStream("users.dat");
-	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
+				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
 			objectOut.writeObject(u);
 		} catch (IOException e) {
             e.printStackTrace();
@@ -103,7 +103,7 @@ public class Main extends Application implements Serializable{
 	public static void createRestaurantData()
 	{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
-	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
 	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "asfda", "asfda", "asfda", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
 	            test.addTerm(new Filter("Fast Food"));
@@ -122,8 +122,8 @@ public class Main extends Application implements Serializable{
 	
 	public static void createUserData()
 	{
-		try (FileOutputStream fileOut = new FileOutputStream("users.dat");
-	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
+				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User admin = new User("admin", "abc123", "admin@email.com", true);
 				
 	            objectOut.writeObject(admin);
@@ -135,7 +135,7 @@ public class Main extends Application implements Serializable{
 	public static void createFilterData()
 	{
 		try (FileOutputStream fileOut = new FileOutputStream("filters.dat");
-	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				Filter term1 = new Filter("Fast Food");
 				Filter term2 = new Filter("Mexican");
 				
