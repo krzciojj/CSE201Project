@@ -2,6 +2,7 @@ package application;
 	
 import javafx.application.Application;
 
+import steakstore.Filter;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javafx.stage.Stage;
-import steakstore.Filter;
 import steakstore.Restaurant;
 import steakstore.User;
 import javafx.scene.Parent;
@@ -25,26 +25,23 @@ import javafx.scene.control.Button;
 public class Main extends Application implements Serializable{
 	
 	
+	
 	Button button;
+	public static ArrayList<Filter> filters = new ArrayList<Filter>();
 	private static final long serialVersionUID = 0;
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 	public static ArrayList<User> users = new ArrayList<User>();
-	public static ArrayList<Filter> filters = new ArrayList<Filter>();
 	public static void main(String[] args) throws ClassNotFoundException, IOException 
 	{
 		File temp = new File("restaurants.dat");
 		File temp2 = new File("users.dat");
-		File temp3 = new File("filters.dat");
 		if(!temp.exists())
 			createRestaurantData();
 		if(!temp2.exists())
 			createUserData();
-		if(!temp3.exists())
-			createFilterData();
 		
 		readRestaurantData();
 		readUserData();
-		readFilterData();
 		launch(args);
 	}
 	
@@ -76,20 +73,6 @@ public class Main extends Application implements Serializable{
 		}
 	}
 	
-	public static void readFilterData() throws IOException, ClassNotFoundException
-	{
-		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
-		while(true)
-		{
-			try {
-			filters.add((Filter) objectData.readObject());
-			} catch(EOFException e) {
-				return;
-				//objectData.close();
-			}
-		}
-	}
-	
 	public static void addUser(User u)
 	{
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat");
@@ -105,11 +88,9 @@ public class Main extends Application implements Serializable{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
-	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "asfda", "asfda", "asfda", testuser);
-	            test.addTerm(new Filter("Fast Food"));
-	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "a23423a", testuser);
-	            test2.addTerm(new Filter("Fast Food"));
-	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a", "a23423a", testuser);
+	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "asfda", "asfda", "asfda", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
+	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "a23423a", testuser, "https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
+	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a", "a23423a", testuser, "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
 	            
 	            objectOut.writeObject(test);
 	            objectOut.writeObject(test2);
@@ -131,18 +112,6 @@ public class Main extends Application implements Serializable{
 	        }
 	}
 	
-	public static void createFilterData()
-	{
-		try (FileOutputStream fileOut = new FileOutputStream("filters.dat");
-	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-				Filter filter = new Filter("Fast Food");
-				
-	            objectOut.writeObject(filter);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	}
-	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
@@ -151,6 +120,21 @@ public class Main extends Application implements Serializable{
 		primaryStage.setTitle("Steak Store");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+	}
+	
+	
+	public static void readFilterData() throws IOException, ClassNotFoundException
+	{
+		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
+		while(true)
+		{
+			try {
+			filters.add((Filter) objectData.readObject());
+			} catch(EOFException e) {
+				return;
+				//objectData.close();
+			}
+		}
 	}
 
 	
