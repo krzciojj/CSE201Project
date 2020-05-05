@@ -92,7 +92,7 @@ public class Main extends Application implements Serializable{
 	
 	public static void addUser(User u)
 	{
-		try (FileOutputStream fileOut = new FileOutputStream("users.dat");
+		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 			objectOut.writeObject(u);
 		} catch (IOException e) {
