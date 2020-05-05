@@ -8,9 +8,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller"> 
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RestaurantController"> 
    <children>
-      <Text layoutX="221.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wendy's">
+      <Text fx:id="titleText" layoutX="221.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wendy's">
          <font>
             <Font size="46.0" />
          </font></Text>
@@ -19,13 +19,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="149.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5142 College Corner Pike, Oxford, OH 45056" />
+      <Text fx:id="locationText" layoutX="149.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5142 College Corner Pike, Oxford, OH 45056" />
       <Text layoutX="149.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="149.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6:30AM - 9:30PM" />
+      <Text fx:id="hoursText" layoutX="149.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6:30AM - 9:30PM" />
       <ImageView fitHeight="164.0" fitWidth="289.0" layoutX="163.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Downloads/2018-01-17.jpg" />

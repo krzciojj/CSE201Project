@@ -15,7 +15,15 @@ public class User implements Serializable
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		
+		isAdmin = false;
+	}
+	
+	public User(String username, String password, String email, boolean admin)
+	{
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		isAdmin = admin;
 	}
 	
 	public boolean makeSubmission(Submission s)
