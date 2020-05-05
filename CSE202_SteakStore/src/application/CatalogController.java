@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -34,23 +33,42 @@ public class CatalogController extends Main implements Initializable {
 	@FXML
 	Button userProfileButton;
 
-	Restaurant currentRestaurant;
+	static Restaurant currentRestaurant;
+
+	ArrayList<Restaurant> currentRestaurants;
 
 	public void userProfileButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		userProfileButton.getScene().setRoot(root);
 	}
+
 	public void searchButtonClick() {
+		currentRestaurants.clear();
+
 		catalog.getItems().clear();
-		for(String term : filterList.getSelectionModel().getSelectedItems()) {
-			for(Restaurant restaurant : restaurants) {
-				for(Filter restaurantFilter : restaurant.getSearchTerms()) {
-					if(restaurantFilter.getTerm().equals(term)) {
-						catalog.getItems().add(restaurant.getInfo()[0]);
-						System.out.println(restaurant.getInfo()[0]);
+		for (String term : filterList.getSelectionModel().getSelectedItems()) {
+			for (Restaurant restaurant : restaurants) {
+				for (Filter restaurantFilter : restaurant.getSearchTerms()) {
+					if (restaurantFilter.getTerm().equals(term)
+							&& (restaurant.getInfo()[0].toLowerCase().contains(searchBar.getText().toLowerCase())
+									|| searchBar.getText().equals(""))) {
+						currentRestaurants.add(restaurant);
 					}
 				}
 			}
+		}
+
+		if (filterList.getSelectionModel().getSelectedItems().size() == 0) {
+			for (Restaurant restaurant : restaurants) {
+				if (restaurant.getInfo()[0].toLowerCase().contains(searchBar.getText().toLowerCase())
+						|| searchBar.getText().equals("")) {
+					currentRestaurants.add(restaurant);
+				}
+			}
+		}
+
+		for (Restaurant restaurant : currentRestaurants) {
+			catalog.getItems().add(restaurant.getInfo()[0]);
 		}
 	}
 
@@ -63,21 +81,24 @@ public class CatalogController extends Main implements Initializable {
 		}
 
 		// Catalog
-		currentRestaurant = null;
+		currentRestaurants = new ArrayList<Restaurant>();
 
 		for (Restaurant restaurant : restaurants) {
 			catalog.getItems().add(restaurant.getInfo()[0]);
+			currentRestaurants.add(restaurant);
 		}
 
 		catalog.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent arg0) {
-				Parent root = null;
 				try {
 					if (catalog.getSelectionModel().getSelectedItem() != null) {
-						currentRestaurant = restaurants.get(catalog.getSelectionModel().getSelectedIndex());
-						root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
+						System.out.println( "a" + 
+								currentRestaurants.get(catalog.getSelectionModel().getSelectedIndex()).getInfo()[0]);
+						currentRestaurant = currentRestaurants.get(catalog.getSelectionModel().getSelectedIndex());
+
+						Parent root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
 						catalog.getScene().setRoot(root);
 					}
 				} catch (IOException e) {
