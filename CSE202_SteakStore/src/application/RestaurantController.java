@@ -57,7 +57,6 @@ public class RestaurantController extends CatalogController implements Initializ
 			titleText.setText(currentRestaurant.getInfo()[0]);
 			locationText.setText(currentRestaurant.getInfo()[1]);
 			hoursText.setText(currentRestaurant.getInfo()[2]);
-			System.out.println(currentRestaurant.getInfo()[6]);
 			String path = currentRestaurant.getInfo()[6];
 			viewImage.setImage(new Image(path));
 	//		getHostServices().showDocument(currentRestaurant.getInfo()[6]);
