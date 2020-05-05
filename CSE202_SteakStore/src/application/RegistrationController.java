@@ -3,6 +3,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -39,8 +41,13 @@ public class RegistrationController extends Main{
 		{
 			User newUser = new User (name.getText(), password.getText(), email.getText());
 			addUser(newUser);
-			System.out.println("test");
 			//pop up saying successfully registered and takes user back to login menu
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Sucessfully Registered");
+			alert.setHeaderText("Congratulations");
+			alert.setContentText("Sending you back to the login page");
+			alert.showAndWait();
+			System.out.println("pass");
 		}
 		else
 		{
