@@ -22,6 +22,15 @@ public class Restaurant implements Serializable {
 		this.website = website;
 		this.menu = menu;
 		this.author = author;
+		searchTerms = new ArrayList<Filter>();
+	}
+	
+	public void addTerm(Filter term) {
+		searchTerms.add(term);
+	}
+	
+	public ArrayList<Filter> getSearchTerms() {
+		return searchTerms;
 	}
 
 	/**
