@@ -18,8 +18,15 @@ public class CatalogController extends Main implements Initializable {
 
 	@FXML
 	ListView<String> catalog;
+	@FXML
+	Button returnButton;
 	
 	public static Restaurant currentRestaurant;
+	
+	public void returnButtonClick() throws Exception {
+		Parent back = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		returnButton.getScene().setRoot(back);
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
