@@ -94,8 +94,6 @@ public class CatalogController extends Main implements Initializable {
 			public void handle(MouseEvent arg0) {
 				try {
 					if (catalog.getSelectionModel().getSelectedItem() != null) {
-						System.out.println( "a" + 
-								currentRestaurants.get(catalog.getSelectionModel().getSelectedIndex()).getInfo()[0]);
 						currentRestaurant = currentRestaurants.get(catalog.getSelectionModel().getSelectedIndex());
 
 						Parent root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
