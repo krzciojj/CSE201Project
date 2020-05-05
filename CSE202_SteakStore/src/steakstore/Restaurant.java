@@ -13,10 +13,8 @@ public class Restaurant implements Serializable {
 	private ArrayList<Filter> searchTerms;
 	private ArrayList<Review> reviews;
 	private User author;
-	private String picture;
-	
-	public Restaurant(String name, String location, String hours, String contact, 
-			String website, String menu, User author, String picture ) {
+
+	public Restaurant(String name, String location, String hours, String contact, String website, String menu, User author) {
 		this.name = name;
 		this.location = location;
 		this.hours = hours;
@@ -24,7 +22,6 @@ public class Restaurant implements Serializable {
 		this.website = website;
 		this.menu = menu;
 		this.author = author;
-		this.picture = picture;
 	}
 
 	/**
@@ -44,7 +41,7 @@ public class Restaurant implements Serializable {
 	 *         location, contact, hours website, and menu, in this order.
 	 */
 	public String[] getInfo() {
-		String[] info = { name, location, hours, contact, website, menu, picture };
+		String[] info = { name, location, hours, contact, website, menu };
 		return info;
 	}
 
