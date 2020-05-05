@@ -105,7 +105,7 @@ public class Main extends Application implements Serializable{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 	             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
-	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "asfda", "asfda", "asfda", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
+	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda", "asfda", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
 	            test.addTerm(new Filter("Fast Food"));
 	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "a23423a", testuser, "https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
 	            test2.addTerm(new Filter("Fast Food"));

@@ -41,6 +41,10 @@ public class RestaurantController extends CatalogController implements Initializ
 		stage.setScene(new Scene(menu, 700, 600));
 		stage.show();
 	}
+	
+	public void sendToContact() throws Exception {
+		getHostServices().showDocument(currentRestaurant.getInfo()[3]);
+	}
 
 	@FXML
 	Text titleText;
