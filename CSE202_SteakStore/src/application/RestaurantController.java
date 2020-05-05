@@ -1,6 +1,9 @@
 package application;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -45,6 +48,8 @@ public class RestaurantController extends CatalogController implements Initializ
 	Text locationText;
 	@FXML
 	Text hoursText;
+	@FXML
+	ImageView viewImage;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +57,11 @@ public class RestaurantController extends CatalogController implements Initializ
 			titleText.setText(currentRestaurant.getInfo()[0]);
 			locationText.setText(currentRestaurant.getInfo()[1]);
 			hoursText.setText(currentRestaurant.getInfo()[2]);
+			System.out.println(currentRestaurant.getInfo()[6]);
+			String path = currentRestaurant.getInfo()[6];
+			viewImage.setImage(new Image(path));
+	//		getHostServices().showDocument(currentRestaurant.getInfo()[6]);
+			
 		}
 	}
 }
