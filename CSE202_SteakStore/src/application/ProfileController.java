@@ -1,9 +1,17 @@
 package application;
 
-public class ProfileController {
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
-	public ProfileController() {
-		// TODO Auto-generated constructor stub
+public class ProfileController {
+	@FXML
+	Button submissionButton;
+	
+	public void submissionButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("submission page.fxml"));
+		submissionButton.getScene().setRoot(root);
 	}
 
 }
