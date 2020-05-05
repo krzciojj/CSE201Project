@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 public class RestaurantController extends CatalogController implements Initializable {
@@ -33,10 +34,11 @@ public class RestaurantController extends CatalogController implements Initializ
 	public void seeMenuButtonClick() throws Exception {
 		if (currentRestaurant != null) {
 			HBox menu = new HBox();
-			Image menus = new Image(currentRestaurant.getInfo()[5]);
-			ImageView view = new ImageView(menus);
+			WebView menus = new WebView();
+			menus.getEngine().load(currentRestaurant.getInfo()[5]);
+//			ImageView view = new ImageView(menus);
 
-			menu.getChildren().add(view);
+			menu.getChildren().add(menus);
 			Stage stage = new Stage();
 			stage.setTitle("Menu");
 			stage.setScene(new Scene(menu, 700, 600));

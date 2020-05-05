@@ -105,11 +105,11 @@ public class Main extends Application implements Serializable{
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 				User testuser = new User("name", "pass", "email");
-	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda", "asfda", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
+	            Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM", "https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda", "https://order.wendys.com/categories?site=menu", testuser, "https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
 	            test.addTerm(new Filter("Fast Food"));
-	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "a23423a", testuser, "https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
+	            Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a", "a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", testuser, "https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
 	            test2.addTerm(new Filter("Fast Food"));
-	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a", "a23423a", testuser, "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
+	            Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a", "https://meetatroam.com/wp-content/uploads/2019/02/Chipotle-Menu-2019-.pdf", testuser, "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
 	            test3.addTerm(new Filter("Mexican"));
 	            
 	            objectOut.writeObject(test);
