@@ -154,6 +154,7 @@ public class Main extends Application implements Serializable {
 		primaryStage.setTitle("Steak Store");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.setResizable(false);
 	}
 
 }
