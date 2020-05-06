@@ -38,6 +38,8 @@ public class CatalogController extends Main implements Initializable {
 	ListView<String> filterList;
 	@FXML
 	Button userProfileButton;
+	@FXML
+	Button returnButton;
 
 	static Restaurant currentRestaurant;
 
@@ -53,11 +55,17 @@ public class CatalogController extends Main implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		userProfileButton.getScene().setRoot(root);
 	}
+	
+	public void returnButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		returnButton.getScene().setRoot(root);
+	}
 
-	/**
-	 * Allows user to search for items entered into search bar. Optionally filters
-	 * search of selected. Pulls up results containing characters entered
-	 */
+	public void clearButtonClick() {
+		filterList.getSelectionModel().clearSelection();
+		searchButtonClick();
+	}
+	
 	public void searchButtonClick() {
 		currentRestaurants.clear();
 
@@ -126,6 +134,15 @@ public class CatalogController extends Main implements Initializable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
+
+		});
+		
+		filterList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				searchButtonClick();
 			}
 
 		});

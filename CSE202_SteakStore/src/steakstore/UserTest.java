@@ -10,7 +10,7 @@ class UserTest {
 	void testMakeSubmission() {
 		User billybob = new User("bill", "bob", "billybob");
 		Restaurant wendys = new Restaurant("hey", "there", "billy", "bob", "joe", "joe", billybob, "www.");
-		Submission wendy = new Submission(wendys, billybob);
+		Submission wendy = new Submission(wendys);
 		
 		assertTrue(billybob.makeSubmission(wendy));
 		

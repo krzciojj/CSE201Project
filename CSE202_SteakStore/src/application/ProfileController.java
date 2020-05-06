@@ -19,6 +19,13 @@ public class ProfileController extends Main implements Initializable {
 	Text email;
 	@FXML
 	Button returnToCatalogButton;
+	@FXML
+	Button reviewButton;
+	
+	public void reviewButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+		reviewButton.getScene().setRoot(root);
+	}
 	
 	public void submissionButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("submission page.fxml"));
@@ -34,6 +41,8 @@ public class ProfileController extends Main implements Initializable {
 		if(currentUser != null) {
 			username.setText(currentUser.getUsername());
 			email.setText(currentUser.getEmail());
+			if(currentUser.isAdmin())
+				reviewButton.setVisible(true);
 		}
 	}
 
