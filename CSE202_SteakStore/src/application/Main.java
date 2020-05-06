@@ -20,7 +20,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-
+/**
+ * 
+ * @author Danny, Grant, Jacob, Jak
+ * Center of application. Used to run application.
+ *
+ */
 @SuppressWarnings("serial")
 public class Main extends Application implements Serializable {
 
@@ -32,7 +37,12 @@ public class Main extends Application implements Serializable {
 	public static ArrayList<Filter> filters = new ArrayList<Filter>(); // list of all filters
 
 	public static User currentUser; // currently logged in user
-
+/**
+ * Main method used to call other methods for application functionality
+ * @param args
+ * @throws ClassNotFoundException
+ * @throws IOException
+ */
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		File temp = new File("restaurants.dat");
 		File temp2 = new File("users.dat");
@@ -49,7 +59,11 @@ public class Main extends Application implements Serializable {
 		readFilterData();
 		launch(args);
 	}
-
+/**
+ * Reads restaurant data from file
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	public static void readRestaurantData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
 		while (true) {
@@ -61,7 +75,11 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Reads user data from file
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	public static void readUserData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("users.dat"));
 		while (true) {
@@ -73,7 +91,11 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Reads filter data from file
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	public static void readFilterData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
 		while (true) {
@@ -85,7 +107,10 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Adds user data to file
+ * @param u the user to be added
+ */
 	public static void addUser(User u) {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -95,7 +120,9 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates users and restaurants and writes them to file
+ */
 	public static void createRestaurantData() {
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
@@ -121,7 +148,9 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates admin user and writes data to file
+ */
 	public static void createUserData() {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
@@ -132,7 +161,9 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates filters and writes data to file
+ */
 	public static void createFilterData() {
 		try (FileOutputStream fileOut = new FileOutputStream("filters.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
@@ -145,7 +176,9 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Starts up the application
+ */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));

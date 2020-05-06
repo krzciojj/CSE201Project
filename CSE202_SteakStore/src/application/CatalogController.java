@@ -20,6 +20,12 @@ import javafx.scene.input.MouseEvent;
 import steakstore.Filter;
 import steakstore.Restaurant;
 
+/**
+ * 
+ * @author Danny, Grant, Jacob, Jak 
+ * Used to implement the catalog
+ *         pane on our application
+ */
 public class CatalogController extends Main implements Initializable {
 
 	@FXML
@@ -37,11 +43,21 @@ public class CatalogController extends Main implements Initializable {
 
 	ArrayList<Restaurant> currentRestaurants;
 
+	/**
+	 * Adds functionality to user profile button by redirecting user to profile page
+	 * when clicked
+	 * 
+	 * @throws Exception
+	 */
 	public void userProfileButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		userProfileButton.getScene().setRoot(root);
 	}
 
+	/**
+	 * Allows user to search for items entered into search bar. Optionally filters
+	 * search of selected. Pulls up results containing characters entered
+	 */
 	public void searchButtonClick() {
 		currentRestaurants.clear();
 
@@ -71,13 +87,15 @@ public class CatalogController extends Main implements Initializable {
 			catalog.getItems().add(restaurant.getInfo()[0]);
 		}
 	}
-
+/**
+ * Displays user profile button if logged in and hides it otherwise
+ */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		if(currentUser == null)
+		if (currentUser == null)
 			userProfileButton.setVisible(false);
-		
+
 		// Filters
 		for (Filter filter : filters) {
 			filterList.getItems().add(filter.getTerm());
@@ -92,7 +110,9 @@ public class CatalogController extends Main implements Initializable {
 		}
 
 		catalog.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
+/**
+ * Allows user to access restaurant page when clicking on restaurant
+ */
 			@Override
 			public void handle(MouseEvent arg0) {
 				try {
