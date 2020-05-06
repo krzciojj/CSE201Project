@@ -32,6 +32,8 @@ public class CatalogController extends Main implements Initializable {
 	ListView<String> filterList;
 	@FXML
 	Button userProfileButton;
+	@FXML
+	Button returnButton;
 
 	static Restaurant currentRestaurant;
 
@@ -40,6 +42,11 @@ public class CatalogController extends Main implements Initializable {
 	public void userProfileButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		userProfileButton.getScene().setRoot(root);
+	}
+	
+	public void returnButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
+		returnButton.getScene().setRoot(root);
 	}
 
 	public void clearButtonClick() {
