@@ -112,6 +112,16 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void addSubmission(Restaurant r) {
+		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat", true);
+				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
+			submissions.add(r);
+			objectOut.writeObject(r);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void createRestaurantData() {
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
