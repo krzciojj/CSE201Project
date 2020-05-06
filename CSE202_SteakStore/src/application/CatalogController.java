@@ -75,6 +75,9 @@ public class CatalogController extends Main implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		if(currentUser == null)
+			userProfileButton.setVisible(false);
+		
 		// Filters
 		for (Filter filter : filters) {
 			filterList.getItems().add(filter.getTerm());
