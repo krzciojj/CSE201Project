@@ -17,7 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import steakstore.Restaurant;
 import steakstore.Submission;
-
+/**
+ * COntrols the admin side of the application
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class AdminController extends CatalogController implements Initializable {
 
 	@FXML
@@ -38,16 +42,23 @@ public class AdminController extends CatalogController implements Initializable 
 	Button deny;
 
 	ArrayList<Submission> currentSubmissions;
-
+/**
+ * Deselects a selected item on submission list
+ */
 	public void clearButtonClick() {
 		submissionsList.getSelectionModel().clearSelection();
 	}
-
+/**
+ * Redirects to profile page once clicked
+ */
 	public void returnButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		returnButton.getScene().setRoot(root);
 	}
-
+/**
+ * Previews restaurant once clicked
+ * @throws Exception
+ */
 	public void previewButtonClick() throws Exception {
 		if(submissionsList.getSelectionModel().getSelectedIndex() >= 0) {
 			Restaurant temp = currentRestaurant;
@@ -62,7 +73,9 @@ public class AdminController extends CatalogController implements Initializable 
 			currentRestaurant = temp;
 		}
 	}
-
+/**
+ * Once clicked, displays restaurants that contain the text entered
+ */
 	public void searchButtonClick() {
 		currentSubmissions.clear();
 		submissionsList.getItems().clear();
@@ -89,20 +102,30 @@ public class AdminController extends CatalogController implements Initializable 
 			}
 		}
 	}
-
+/**
+ * Accepts a submission and adds to restaurant list
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	public void acceptSubmission() throws FileNotFoundException, IOException {
 		currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(1);
 		addRestaurant(currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).getRestaurant());
 		searchButtonClick();
 		createSubmissionData();
 	}
-
+/**
+ * Rejects a submission
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	public void denySubmission() throws FileNotFoundException, IOException {
 		currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(-1);
 		searchButtonClick();
 		createSubmissionData();
 	}
-
+/**
+ * Adds submission to the list of current submissions
+ */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
