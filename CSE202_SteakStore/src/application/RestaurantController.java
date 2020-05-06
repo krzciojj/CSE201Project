@@ -5,13 +5,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ResourceBundle;
-
+import steakstore.Review;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -41,9 +45,20 @@ public class RestaurantController extends CatalogController implements Initializ
 			menu.getChildren().add(menus);
 			Stage stage = new Stage();
 			stage.setTitle("Menu");
-			stage.setScene(new Scene(menu, 700, 600));
+			stage.setScene(new Scene(menu, 800, 600));
+			stage.setResizable(false);
 			stage.show();
 		}
+	}
+	// hate to do this but it wont work otherwise
+	@FXML
+	Button reviewButton;
+	public void addReview() throws Exception {
+		Parent back = FXMLLoader.load(getClass().getResource("review.fxml"));
+		Stage stage = new Stage();
+		stage.setTitle("Review");
+		stage.setScene(new Scene(back, 600, 300));
+		stage.show();
 	}
 	
 	public void sendToContact() throws Exception {
