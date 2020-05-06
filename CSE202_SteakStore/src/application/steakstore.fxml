@@ -13,7 +13,7 @@
             <Font name="Arial" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="openCatalogButton" layoutX="349.0" layoutY="238.0" mnemonicParsing="false" onAction="#openCatalogButtonClick" text="Go To Catalog" />
       <Button fx:id="openLoginButton" layoutX="194.0" layoutY="238.0" mnemonicParsing="false" onAction="#openLoginButtonClick" text="Login" />
+      <Button fx:id="openCatalogButton" layoutX="349.0" layoutY="238.0" mnemonicParsing="false" onAction="#openCatalogButtonClick" text="Go To Catalog" />
    </children>
 </AnchorPane>
