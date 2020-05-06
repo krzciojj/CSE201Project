@@ -35,5 +35,6 @@
       <Button fx:id="menuButton" layoutX="26.0" layoutY="188.0" mnemonicParsing="false" onAction="#seeMenuButtonClick" text="See Menu (PDF)" />
       <Button fx:id="returnButton" layoutX="26.0" layoutY="34.0" mnemonicParsing="false" onAction="#returnButtonClick" text="Return" />
       <Button layoutX="26.0" layoutY="320.0" mnemonicParsing="false" onAction="#sendToContact" text="Make Reservation" />
+      <Button layoutX="425.0" layoutY="343.0" mnemonicParsing="false" onAction="#addReview" text="Add Review" />
    </children>
 </Pane>

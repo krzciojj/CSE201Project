@@ -41,6 +41,7 @@ public class Restaurant implements Serializable {
 		this.picture = picture;
 
 		searchTerms = new ArrayList<Filter>();
+		reviews = new ArrayList<Review>();
 	}
 	
 	public void addTerm(Filter term) {
