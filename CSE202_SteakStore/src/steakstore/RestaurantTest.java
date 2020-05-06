@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class RestaurantTest {
-
+	
 	@Test
 	void testRestaurant() {
 		User john = new User("john", "Jacob", "jingle");

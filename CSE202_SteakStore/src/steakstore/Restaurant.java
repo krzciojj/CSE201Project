@@ -43,16 +43,25 @@ public class Restaurant implements Serializable {
 		searchTerms = new ArrayList<Filter>();
 		reviews = new ArrayList<Review>();
 	}
-	
+	/**
+	 * adds a term (filter) to the arraylist of search terms
+	 * @param term the term to be added
+	 */
 	public void addTerm(Filter term) {
 		searchTerms.add(term);
 	}
-	
+	/**
+	 * Gets the search terms
+	 * @return returns search terms
+	 */
 	public ArrayList<Filter> getSearchTerms() {
 		return searchTerms;
 
 	}
-	
+	/**
+	 * Gets the user
+	 * @return returns the user
+	 */
 	public User getAuthor() {
 		return author;
 	}
