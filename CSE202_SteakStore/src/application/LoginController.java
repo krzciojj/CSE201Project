@@ -14,6 +14,11 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import steakstore.User;
 
+/**
+ * 
+ * @author Danny, Grant, Jacob, Jak Used to implement login functions on
+ *         application
+ */
 public class LoginController extends Main {
 	@FXML
 	TextField username;
@@ -26,15 +31,28 @@ public class LoginController extends Main {
 	@FXML
 	Button registerButton;
 
+	/**
+	 * Redirects user to registration page when button is clicked
+	 * 
+	 * @throws Exception
+	 */
 	public void registerButtonClick() throws Exception {
 		Parent register = FXMLLoader.load(getClass().getResource("register.fxml"));
 		registerButton.getScene().setRoot(register);
 	}
 
+	/**
+	 * Reads user input and checks if login credentials are valid. Populates window
+	 * to take user to catalog page if correct and populate pop up instructing user
+	 * on how to proceed otherwise
+	 * 
+	 * @throws Exception
+	 */
 	public void loginButtonClick() throws Exception {
 		if (username.getText().length() > 0 && password.getText().length() > 0) {
-			for(User user : users) {
-				if((user.getUsername().equals(username.getText()) || user.getEmail().equals(username.getText()) && user.getPassword().equals(password.getText()))) {
+			for (User user : users) {
+				if ((user.getUsername().equals(username.getText()) || user.getEmail().equals(username.getText())
+						&& user.getPassword().equals(password.getText()))) {
 					currentUser = user;
 					Parent login = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 					loginButton.getScene().setRoot(login);
@@ -57,7 +75,10 @@ public class LoginController extends Main {
 		}
 
 	}
-
+/**
+ * Redirects user back to landing page once clicked
+ * @throws Exception
+ */
 	public void goBackButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
 		goBackButton.getScene().setRoot(root);

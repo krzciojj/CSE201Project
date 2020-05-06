@@ -10,7 +10,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-
+/**
+ * Used to implement main controls of application
+ * @author Danny
+ *
+ */
 public class Controller {
 	
 	
@@ -19,13 +23,19 @@ public class Controller {
 	Button openCatalogButton;
 	@FXML
 	Button openLoginButton;
-	
+	/**
+	 * Redirects user to catalog page when button is clicked
+	 * @throws Exception
+	 */
 	public void openCatalogButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 		openCatalogButton.getScene().setRoot(root);
 	}
-	
+	/**
+	 * Redirects user to login page when button is clicked
+	 * @throws Exception
+	 */
 	public void openLoginButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -38,7 +48,10 @@ public class Controller {
 	Button b1;
 	@FXML
 	Button b2;
-	
+	/**
+	 * Redirects user to restaurant page when button is clicked
+	 * @throws Exception
+	 */
 	public void restaurantButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("restaurant.fxml"));
@@ -59,33 +72,54 @@ public class Controller {
 	Button registerButton;
 	@FXML
 	Button returnToLoginButton;
-	
+	/**
+	 * Redirects user to rgistration page when button is clicked
+	 * @throws Exception
+	 */
 	public void registerButtonClick() throws Exception {
 		Parent register = FXMLLoader.load(getClass().getResource("register.fxml"));
 		registerButton.getScene().setRoot(register);
 	}
+	/**
+	 * Redirects user back to login page when button is clicked
+	 * @throws Exception
+	 */
 	public void returnToLoginButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
 		returnToLoginButton.getScene().setRoot(root);
 	}
+	/**
+	 * Redirects user to catalog page when correct login credentials are entered
+	 * @throws Exception
+	 */
 	public void loginButtonClick() throws Exception
 	{
 		Parent login = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 		loginButton.getScene().setRoot(login);
 		
 	}
-	
+	/**
+	 * Redirects user back to landing page when button is clicked
+	 * @throws Exception
+	 */
 	public void goBackButtonClick() throws Exception
 	{
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));
 		goBackButton.getScene().setRoot(root);
 	}
-	
+	/**
+	 * Redirects user back to catalog when button is clicked
+	 * @throws Exception
+	 */
 	public void returnButtonClick() throws Exception 
 	{
 		Parent back = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 		returnButton.getScene().setRoot(back);
 	}
+	/**
+	 * Redirects user to a pdf of the menu in a new window when button is clicked
+	 * @throws Exception
+	 */
 	public void seeMenuButtonClick() throws Exception
 	{
 		HBox menu = new HBox();

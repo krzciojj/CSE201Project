@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController">
+   <children>
+      <ListView fx:id="submissionsList" layoutX="165.0" layoutY="87.0" prefHeight="267.0" prefWidth="404.0" />
+      <TextField fx:id="searchBar" layoutX="165.0" layoutY="46.0" prefHeight="25.0" prefWidth="262.0" promptText="Restaurant Name" />
+      <Button fx:id="searchButton" layoutX="437.0" layoutY="46.0" mnemonicParsing="false" onAction="#searchButtonClick" text="Search" />
+      <Button fx:id="returnButton" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#returnButtonClick" text="Go Back" />
+      <Button fx:id="preview" layoutX="55.0" layoutY="188.0" mnemonicParsing="false" text="Preview" />
+      <Button fx:id="accept" layoutX="102.0" layoutY="297.0" mnemonicParsing="false" text="Accept" />
+      <Button fx:id="deny" layoutX="112.0" layoutY="329.0" mnemonicParsing="false" text="Deny" />
+      <Button fx:id="clearButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" text="Clear" />
+   </children>
+</Pane>
