@@ -51,8 +51,8 @@ public class LoginController extends Main {
 	public void loginButtonClick() throws Exception {
 		if (username.getText().length() > 0 && password.getText().length() > 0) {
 			for (User user : users) {
-				if ((user.getUsername().equals(username.getText()) || user.getEmail().equals(username.getText())
-						&& user.getPassword().equals(password.getText()))) {
+				if ((user.getUsername().equals(username.getText()) || user.getEmail().equals(username.getText()))
+						&& user.getPassword().equals(password.getText())) {
 					currentUser = user;
 					Parent login = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 					loginButton.getScene().setRoot(login);
