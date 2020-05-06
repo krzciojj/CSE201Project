@@ -15,6 +15,7 @@ public class ReviewController extends RestaurantController{
 	Button starOne;
 	
 	public void addReview1() {
+		
 		Review got = new Review(1, currentUser);
 		currentRestaurant.addReview(got); 
 		Stage name = (Stage)starOne.getScene().getWindow();

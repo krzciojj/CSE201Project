@@ -78,8 +78,12 @@ public class RestaurantController extends CatalogController implements Initializ
 	public void initialize(URL location, ResourceBundle resources) {
 		for (Restaurant restaurant : restaurants) {
 			if (restaurant.getInfo()[0].equals(currentRestaurant.getInfo()[0])
-					&& restaurant.getInfo()[1].equals(currentRestaurant.getInfo()[1]))
+					&& restaurant.getInfo()[1].equals(currentRestaurant.getInfo()[1])) {
 				returnButton.setVisible(true);
+				if (currentUser != null){
+					reviewButton.setVisible(true);
+				}
+			}
 		}
 		if (currentRestaurant != null) {
 			currRest = currentRestaurant;
@@ -88,6 +92,7 @@ public class RestaurantController extends CatalogController implements Initializ
 			hoursText.setText(currentRestaurant.getInfo()[2]);
 			String path = currentRestaurant.getInfo()[6];
 			viewImage.setImage(new Image(path));
+			
 			// getHostServices().showDocument(currentRestaurant.getInfo()[6]);
 		}
 	}
