@@ -30,19 +30,23 @@ public class Main extends Application implements Serializable {
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(); // list of all restaurants
 	public static ArrayList<User> users = new ArrayList<User>(); // list of all users
 	public static ArrayList<Filter> filters = new ArrayList<Filter>(); // list of all filters
+	public static ArrayList<Filter> submissions = new ArrayList<Filter>(); // list of all current submissions
 
 	public static User currentUser; // currently logged in user
-
+	public static User admin = new User("admin", "abc123", "admin@email.com", true);
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		File temp = new File("restaurants.dat");
 		File temp2 = new File("users.dat");
 		File temp3 = new File("filters.dat");
+		File temp4 = new File("submissions.dat");
 		if (!temp.exists())
 			createRestaurantData();
 		if (!temp2.exists())
 			createUserData();
 		if (!temp3.exists())
 			createFilterData();
+		if (!temp4.exists())
+			createSubmissionData();
 
 		readRestaurantData();
 		readUserData();
@@ -99,18 +103,17 @@ public class Main extends Application implements Serializable {
 	public static void createRestaurantData() {
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			User testuser = new User("name", "pass", "email");
 			Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM",
 					"https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda",
-					"https://order.wendys.com/categories?site=menu", testuser,
+					"https://order.wendys.com/categories?site=menu", admin,
 					"https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
 			test.addTerm(new Filter("Fast Food"));
 			Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a",
-					"a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", testuser,
+					"a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", admin,
 					"https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
 			test2.addTerm(new Filter("Fast Food"));
 			Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a",
-					"https://meetatroam.com/wp-content/uploads/2019/02/Chipotle-Menu-2019-.pdf", testuser,
+					"https://meetatroam.com/wp-content/uploads/2019/02/Chipotle-Menu-2019-.pdf", admin,
 					"https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
 			test3.addTerm(new Filter("Mexican"));
 
@@ -125,7 +128,6 @@ public class Main extends Application implements Serializable {
 	public static void createUserData() {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			User admin = new User("admin", "abc123", "admin@email.com", true);
 
 			objectOut.writeObject(admin);
 		} catch (IOException e) {
@@ -141,6 +143,17 @@ public class Main extends Application implements Serializable {
 
 			objectOut.writeObject(term1);
 			objectOut.writeObject(term2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void createSubmissionData() {
+		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat");
+				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+			Restaurant submission = new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd", "6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
+					"https://cos-steak-n-shake.s3-us-west-2.amazonaws.com/ISME2019/SNS_DIMNU_Web_Menu_Nov_Final%5B2%5D.pdf", admin, "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png");
+			objectOut.writeObject(submission);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
