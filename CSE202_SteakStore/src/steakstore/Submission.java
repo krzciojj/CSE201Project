@@ -23,10 +23,12 @@ public class Submission implements Serializable {
 	 *         form was accepted, or "Denied" if the submission form was denied
 	 */
 	String checkStatus() {
-		if (restaurant == null)
-			return "Restaurant does not exist";
+		if (status == -1)
+			return "Restaurant was denied";
+		else if (status == 0)
+			return "Awaiting acceptance";
 		else
-			return "Accepted";
+			return "Restaurant accepted";
 
 	}
 }
