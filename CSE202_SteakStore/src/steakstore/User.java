@@ -77,5 +77,8 @@ public class User implements Serializable
 		this.email = email;
 	}
 	
+	public Boolean isAdmin() {
+		return isAdmin;
+	}
 	
 }

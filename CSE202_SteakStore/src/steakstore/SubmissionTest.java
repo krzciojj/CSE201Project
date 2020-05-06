@@ -8,12 +8,12 @@ class SubmissionTest{
 
 	@Test
 	void StatusTest() {
-		Submission sub = new Submission(null, null);
+		Submission sub = new Submission(null);
 		assertEquals(sub.checkStatus(), "Restaurant does not exist");
 
 		User u = new User("Username", "password", "u@gmail.com");
 		Restaurant r = new Restaurant("Outback", "Cincinnati", "5:00AM - 9:00PM", "5555555555", "www.outback.com", "menu", u, "www.");
-		sub = new Submission(r, u);
+		sub = new Submission(r);
 		assertEquals(sub.checkStatus(), "aaaaaa");
 	}
 

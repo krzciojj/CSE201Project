@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javafx.stage.Stage;
 import steakstore.Filter;
 import steakstore.Restaurant;
+import steakstore.Submission;
 import steakstore.User;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,7 +31,7 @@ public class Main extends Application implements Serializable {
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(); // list of all restaurants
 	public static ArrayList<User> users = new ArrayList<User>(); // list of all users
 	public static ArrayList<Filter> filters = new ArrayList<Filter>(); // list of all filters
-	public static ArrayList<Restaurant> submissions = new ArrayList<Restaurant>(); // list of all current submissions
+	public static ArrayList<Submission> submissions = new ArrayList<Submission>(); // list of all current submissions
 
 	public static User currentUser; // currently logged in user
 	public static User admin = new User("admin", "abc123", "admin@email.com", true);
@@ -95,7 +96,7 @@ public class Main extends Application implements Serializable {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("submissions.dat"));
 		while (true) {
 			try {
-				submissions.add((Restaurant) objectData.readObject());
+				submissions.add((Submission) objectData.readObject());
 			} catch (EOFException e) {
 				return;
 				// objectData.close();
@@ -113,7 +114,7 @@ public class Main extends Application implements Serializable {
 		}
 	}
 	
-	public static void addSubmission(Restaurant r) {
+	public static void addSubmission(Submission r) {
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
 			submissions.add(r);
@@ -174,8 +175,8 @@ public class Main extends Application implements Serializable {
 	private static void createSubmissionData() {
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			Restaurant submission = new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd", "6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
-					"https://cos-steak-n-shake.s3-us-west-2.amazonaws.com/ISME2019/SNS_DIMNU_Web_Menu_Nov_Final%5B2%5D.pdf", admin, "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png");
+			Submission submission = new Submission(new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd", "6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
+					"https://cos-steak-n-shake.s3-us-west-2.amazonaws.com/ISME2019/SNS_DIMNU_Web_Menu_Nov_Final%5B2%5D.pdf", admin, "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png"));
 			objectOut.writeObject(submission);
 		} catch (IOException e) {
 			e.printStackTrace();

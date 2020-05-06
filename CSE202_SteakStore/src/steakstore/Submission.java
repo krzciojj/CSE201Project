@@ -1,17 +1,20 @@
 package steakstore;
 
-public class Submission {
+import java.io.Serializable;
+
+public class Submission implements Serializable {
 	int status;
 	Restaurant restaurant;
-	User author;
 
-	public Submission (Restaurant restaurant, User author) {
+	public Submission (Restaurant restaurant) {
 		this.restaurant = restaurant;
-		this.author = author;
 		status = 0;
 	}
 	
-
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	
 	/**
 	 * Returns the status of the submission form
 	 * 
