@@ -17,10 +17,16 @@ public class ProfileController extends Main implements Initializable {
 	Text username;
 	@FXML
 	Text email;
+	@FXML
+	Button returnToCatalogButton;
 	
 	public void submissionButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("submission page.fxml"));
 		submissionButton.getScene().setRoot(root);
+	}
+	public void returnToCatalogButtonClick() throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("catalog.fxml"));
+		returnToCatalogButton.getScene().setRoot(root);
 	}
 
 	@Override

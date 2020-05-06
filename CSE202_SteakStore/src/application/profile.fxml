@@ -35,5 +35,6 @@
       <Button fx:id="submissionButton" layoutX="33.0" layoutY="322.0" mnemonicParsing="false" onAction="#submissionButtonClick" text="Restaurant Submission" />
       <Text fx:id="username" layoutX="110.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="84.13671875" />
       <Text fx:id="email" layoutX="110.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="84.13671875" />
+      <Button fx:id="returnToCatalogButton" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnToCatalogButtonClick" text="Return to Catalog" />
    </children>
 </Pane>
