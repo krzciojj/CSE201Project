@@ -30,7 +30,7 @@ public class Main extends Application implements Serializable {
 	public static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(); // list of all restaurants
 	public static ArrayList<User> users = new ArrayList<User>(); // list of all users
 	public static ArrayList<Filter> filters = new ArrayList<Filter>(); // list of all filters
-	public static ArrayList<Filter> submissions = new ArrayList<Filter>(); // list of all current submissions
+	public static ArrayList<Restaurant> submissions = new ArrayList<Restaurant>(); // list of all current submissions
 
 	public static User currentUser; // currently logged in user
 	public static User admin = new User("admin", "abc123", "admin@email.com", true);
@@ -51,6 +51,7 @@ public class Main extends Application implements Serializable {
 		readRestaurantData();
 		readUserData();
 		readFilterData();
+		readSubmissionData();
 		launch(args);
 	}
 
@@ -89,6 +90,18 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
+
+	private static void readSubmissionData() throws IOException, ClassNotFoundException {
+		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("submissions.dat"));
+		while (true) {
+			try {
+				submissions.add((Restaurant) objectData.readObject());
+			} catch (EOFException e) {
+				return;
+				// objectData.close();
+			}
+		}
+	} 
 
 	public static void addUser(User u) {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
