@@ -1,7 +1,11 @@
 package steakstore;
 
 import java.io.Serializable;
-
+/**
+ * Assists with catalog filter
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class Filter implements Serializable {
 	private String term;
 	/**
