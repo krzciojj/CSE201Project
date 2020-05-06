@@ -2,7 +2,11 @@ package steakstore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * Class used to create a restaurant as well as add reviews for the restaurant and categorize them by filters
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class Restaurant implements Serializable {
 	private String name;
 	private String location;
@@ -14,7 +18,17 @@ public class Restaurant implements Serializable {
 	private ArrayList<Review> reviews;
 	private User author;
 	private String picture;
-	
+	/**
+	 * Constructs a restaurant with all the inputs needed to function correctly
+	 * @param name the name of the restaurant
+	 * @param location the location of the restaurant
+	 * @param hours the hours of the restaurant
+	 * @param contact the phone number for the restaurant
+	 * @param website the website for the restaurant
+	 * @param menu the menu for the restaurant
+	 * @param author the user who submitted the restaurant
+	 * @param picture the picture associated with the restaurant
+	 */
 	public Restaurant(String name, String location, String hours, String contact, 
 			String website, String menu, User author, String picture ) {
 		this.name = name;
