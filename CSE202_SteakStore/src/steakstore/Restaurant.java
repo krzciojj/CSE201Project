@@ -52,6 +52,10 @@ public class Restaurant implements Serializable {
 		return searchTerms;
 
 	}
+	
+	public User getAuthor() {
+		return author;
+	}
 
 	/**
 	 * Adds a review to the list of reviews for the Restaurant

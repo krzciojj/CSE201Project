@@ -5,23 +5,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ResourceBundle;
-import steakstore.Review;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import steakstore.Restaurant;
 
 public class RestaurantController extends CatalogController implements Initializable {
 
@@ -29,6 +26,8 @@ public class RestaurantController extends CatalogController implements Initializ
 	Button returnButton;
 	@FXML
 	Button menuButton;
+	
+	Restaurant currRest;
 
 	public void returnButtonClick() throws Exception {
 		Parent back = FXMLLoader.load(getClass().getResource("catalog.fxml"));
@@ -36,21 +35,20 @@ public class RestaurantController extends CatalogController implements Initializ
 	}
 
 	public void seeMenuButtonClick() throws Exception {
-		if (currentRestaurant != null) {
+		if (currRest != null) {
 			HBox menu = new HBox();
 			WebView menus = new WebView();
-			menus.getEngine().load(currentRestaurant.getInfo()[5]);
+			menus.getEngine().load(currRest.getInfo()[5]);
 //			ImageView view = new ImageView(menus);
 
 			menu.getChildren().add(menus);
 			Stage stage = new Stage();
 			stage.setTitle("Menu");
-			stage.setScene(new Scene(menu, 800, 600));
-			stage.setResizable(false);
+			stage.setScene(new Scene(menu, 700, 600));
 			stage.show();
 		}
 	}
-	// hate to do this but it wont work otherwise
+
 	@FXML
 	Button reviewButton;
 	public void addReview() throws Exception {
@@ -75,17 +73,22 @@ public class RestaurantController extends CatalogController implements Initializ
 	Text hoursText;
 	@FXML
 	ImageView viewImage;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if(currentRestaurant != null) {
+		for (Restaurant restaurant : restaurants) {
+			if (restaurant.getInfo()[0].equals(currentRestaurant.getInfo()[0])
+					&& restaurant.getInfo()[1].equals(currentRestaurant.getInfo()[1]))
+				returnButton.setVisible(true);
+		}
+		if (currentRestaurant != null) {
+			currRest = currentRestaurant;
 			titleText.setText(currentRestaurant.getInfo()[0]);
 			locationText.setText(currentRestaurant.getInfo()[1]);
 			hoursText.setText(currentRestaurant.getInfo()[2]);
 			String path = currentRestaurant.getInfo()[6];
 			viewImage.setImage(new Image(path));
-	//		getHostServices().showDocument(currentRestaurant.getInfo()[6]);
-			
+			// getHostServices().showDocument(currentRestaurant.getInfo()[6]);
 		}
 	}
 }

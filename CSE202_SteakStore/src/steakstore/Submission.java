@@ -15,6 +15,14 @@ public class Submission implements Serializable {
 		return restaurant;
 	}
 	
+	public int getStatus() {
+		return status;
+	}
+	
+	public void setStatus(int s) {
+		status = s;
+	}
+	
 	/**
 	 * Returns the status of the submission form
 	 * 

@@ -14,9 +14,9 @@
       <TextField fx:id="searchBar" layoutX="165.0" layoutY="46.0" prefHeight="25.0" prefWidth="262.0" promptText="Restaurant Name" />
       <Button fx:id="searchButton" layoutX="437.0" layoutY="46.0" mnemonicParsing="false" onAction="#searchButtonClick" text="Search" />
       <Button fx:id="returnButton" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#returnButtonClick" text="Go Back" />
-      <Button fx:id="preview" layoutX="55.0" layoutY="188.0" mnemonicParsing="false" text="Preview" />
-      <Button fx:id="accept" layoutX="102.0" layoutY="297.0" mnemonicParsing="false" text="Accept" />
-      <Button fx:id="deny" layoutX="112.0" layoutY="329.0" mnemonicParsing="false" text="Deny" />
-      <Button fx:id="clearButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" text="Clear" />
+      <Button fx:id="preview" layoutX="55.0" layoutY="188.0" mnemonicParsing="false" onAction="#previewButtonClick" text="Preview" />
+      <Button fx:id="accept" layoutX="107.0" layoutY="291.0" mnemonicParsing="false" onAction="#acceptSubmission" text="Accept" />
+      <Button fx:id="deny" layoutX="112.0" layoutY="329.0" mnemonicParsing="false" onAction="#denySubmission" text="Deny" />
+      <Button fx:id="clearButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" onAction="#clearButtonClick" text="Clear" />
    </children>
 </Pane>

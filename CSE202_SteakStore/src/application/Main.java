@@ -5,6 +5,7 @@ import javafx.application.Application;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,12 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-/**
- * 
- * @author Danny, Grant, Jacob, Jak
- * Center of application. Used to run application.
- *
- */
+
 @SuppressWarnings("serial")
 public class Main extends Application implements Serializable {
 
@@ -39,33 +35,71 @@ public class Main extends Application implements Serializable {
 	public static ArrayList<Submission> submissions = new ArrayList<Submission>(); // list of all current submissions
 
 	public static User currentUser; // currently logged in user
-
 	public static User admin = new User("admin", "abc123", "admin@email.com", true);
+
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		File temp = new File("restaurants.dat");
 		File temp2 = new File("users.dat");
 		File temp3 = new File("filters.dat");
 		File temp4 = new File("submissions.dat");
-		if (!temp.exists())
-			createRestaurantData();
-		if (!temp2.exists())
-			createUserData();
-		if (!temp3.exists())
-			createFilterData();
-		if (!temp4.exists())
-			createSubmissionData();
 
-		readRestaurantData();
-		readUserData();
-		readFilterData();
-		readSubmissionData();
+		// populate local ArrayLists with data from file or handwritten data
+		if (temp.exists())
+			readRestaurantData();
+		else {
+			Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM",
+					"https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda",
+					"https://www.wendys.com/explore-our-food", admin,
+					"https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
+			test.addTerm(new Filter("Fast Food"));
+			Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a",
+					"a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", admin,
+					"https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
+			test2.addTerm(new Filter("Fast Food"));
+			Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a",
+					"https://www.chipotle.com/", admin,
+					"https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
+			test3.addTerm(new Filter("Mexican"));
+			
+			restaurants.add(test);
+			restaurants.add(test2);
+			restaurants.add(test3);
+		}
+		if (temp2.exists())
+			readUserData();
+		else {
+			users.add(admin);
+		}
+		if (temp3.exists())
+			readFilterData();
+		else {
+			Filter term1 = new Filter("Fast Food");
+			Filter term2 = new Filter("Mexican");
+			
+			filters.add(term1);
+			filters.add(term2);
+		}
+		if (temp4.exists())
+			readSubmissionData();
+		else {
+			Submission submission = new Submission(new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd",
+					"6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
+					"https://www.steaknshake.com/select-location/",
+					admin,
+					"https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png"));
+
+			submissions.add(submission);
+		}
+		
+		// create .dat files
+		createRestaurantData();
+		createUserData();
+		createFilterData();
+		createSubmissionData();
 		launch(args);
 	}
-/**
- * Reads restaurant data from file
- * @throws IOException
- * @throws ClassNotFoundException
- */
+
+	/*********************** Read Data **********************/
 	public static void readRestaurantData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
 		while (true) {
@@ -77,11 +111,7 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-/**
- * Reads user data from file
- * @throws IOException
- * @throws ClassNotFoundException
- */
+
 	public static void readUserData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("users.dat"));
 		while (true) {
@@ -93,11 +123,7 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-/**
- * Reads filter data from file
- * @throws IOException
- * @throws ClassNotFoundException
- */
+
 	public static void readFilterData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
 		while (true) {
@@ -120,9 +146,9 @@ public class Main extends Application implements Serializable {
 				// objectData.close();
 			}
 		}
-	} 
+	}
 
-
+	/*********************** Add Data **********************/
 	public static void addUser(User u) {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -132,7 +158,17 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public static void addRestaurant(Restaurant r) {
+		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat", true);
+				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
+			restaurants.add(r);
+			objectOut.writeObject(r);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void addSubmission(Submission r) {
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -143,64 +179,56 @@ public class Main extends Application implements Serializable {
 		}
 	}
 
-	public static void createRestaurantData() {
+	/*********************** Create/Update Data Files **********************/
+	public static void createRestaurantData() throws FileNotFoundException, IOException {
+		new FileOutputStream("restaurants.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM",
-					"https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda",
-					"https://order.wendys.com/categories?site=menu", admin,
-					"https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
-			test.addTerm(new Filter("Fast Food"));
-			Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a",
-					"a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", admin,
-					"https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
-			test2.addTerm(new Filter("Fast Food"));
-			Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a",
-					"https://meetatroam.com/wp-content/uploads/2019/02/Chipotle-Menu-2019-.pdf", admin,
-					"https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
-			test3.addTerm(new Filter("Mexican"));
 
-			objectOut.writeObject(test);
-			objectOut.writeObject(test2);
-			objectOut.writeObject(test3);
+			for (Restaurant restaurant : restaurants) {
+				objectOut.writeObject(restaurant);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-/**
- * Creates admin user and writes data to file
- */
-	public static void createUserData() {
+
+	public static void createUserData() throws FileNotFoundException, IOException {
+		new FileOutputStream("users.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
 
-			objectOut.writeObject(admin);
+			for (User user : users) {
+				objectOut.writeObject(user);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-/**
- * Creates filters and writes data to file
- */
-	public static void createFilterData() {
+
+	public static void createFilterData() throws FileNotFoundException, IOException {
+		new FileOutputStream("filters.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("filters.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			Filter term1 = new Filter("Fast Food");
-			Filter term2 = new Filter("Mexican");
 
-			objectOut.writeObject(term1);
-			objectOut.writeObject(term2);
+			for (Filter filter : filters) {
+				objectOut.writeObject(filter);
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private static void createSubmissionData() {
+
+	protected static void createSubmissionData() throws FileNotFoundException, IOException {
+		new FileOutputStream("submissions.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat");
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-			Submission submission = new Submission(new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd", "6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
-					"https://cos-steak-n-shake.s3-us-west-2.amazonaws.com/ISME2019/SNS_DIMNU_Web_Menu_Nov_Final%5B2%5D.pdf", admin, "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png"));
-			objectOut.writeObject(submission);
+
+			for (Submission submission : submissions) {
+				objectOut.writeObject(submission);
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
