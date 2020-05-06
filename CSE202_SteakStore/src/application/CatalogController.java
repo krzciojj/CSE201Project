@@ -42,6 +42,11 @@ public class CatalogController extends Main implements Initializable {
 		userProfileButton.getScene().setRoot(root);
 	}
 
+	public void clearButtonClick() {
+		filterList.getSelectionModel().clearSelection();
+		searchButtonClick();
+	}
+	
 	public void searchButtonClick() {
 		currentRestaurants.clear();
 
@@ -75,9 +80,9 @@ public class CatalogController extends Main implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		if(currentUser == null)
+		if (currentUser == null)
 			userProfileButton.setVisible(false);
-		
+
 		// Filters
 		for (Filter filter : filters) {
 			filterList.getItems().add(filter.getTerm());
@@ -106,6 +111,15 @@ public class CatalogController extends Main implements Initializable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
+
+		});
+		
+		filterList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+			@Override
+			public void handle(MouseEvent arg0) {
+				searchButtonClick();
 			}
 
 		});

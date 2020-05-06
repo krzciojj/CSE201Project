@@ -15,5 +15,6 @@
       <Button fx:id="searchButton" layoutX="437.0" layoutY="46.0" mnemonicParsing="false" onAction="#searchButtonClick" text="Search" />
       <ListView fx:id="filterList" layoutX="14.0" layoutY="87.0" prefHeight="200.0" prefWidth="140.0" />
       <Button fx:id="userProfileButton" layoutX="46.0" layoutY="329.0" mnemonicParsing="false" onAction="#userProfileButtonClick" text="User Profile" />
+      <Button fx:id="clearButton" layoutX="63.0" layoutY="287.0" mnemonicParsing="false" onAction="#clearButtonClick" text="Clear" />
    </children>
 </Pane>
