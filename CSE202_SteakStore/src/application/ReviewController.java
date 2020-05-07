@@ -6,15 +6,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import steakstore.Restaurant;
 import steakstore.Review;
 /**
  * Controls the review pane on application
  * @author Danny, Grant, Jacob, Jak
  *
  */
-public class ReviewController extends RestaurantController{
+public class ReviewController extends RestaurantController implements Initializable{
 
 	
 	@FXML
@@ -80,6 +83,15 @@ public class ReviewController extends RestaurantController{
 		Stage name = (Stage)starFive.getScene().getWindow();
 		name.close();
 		createRestaurantData();
+	}
+	
+	/**
+	 *  Overrides the initialize in the Restaurant controller so it won't
+	 *  try to initialize a scene that isn't there
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
 	}
 
 }
