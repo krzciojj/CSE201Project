@@ -28,7 +28,7 @@
       <Text fx:id="hoursText" layoutX="149.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6:30AM - 9:30PM" />
       <ImageView fx:id="viewImage" fitHeight="164.0" fitWidth="289.0" layoutX="163.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" />
       <SVGPath content="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" layoutX="306.0" layoutY="344.0" />
-      <Button fx:id="menuButton" layoutX="26.0" layoutY="188.0" mnemonicParsing="false" onAction="#seeMenuButtonClick" text="See Menu (PDF)" />
+      <Button fx:id="menuButton" layoutX="26.0" layoutY="188.0" mnemonicParsing="false" onAction="#seeMenuButtonClick" text="See Menu" />
       <Button fx:id="returnButton" layoutX="26.0" layoutY="34.0" mnemonicParsing="false" onAction="#returnButtonClick" text="Return" visible="false" />
       <Button layoutX="26.0" layoutY="320.0" mnemonicParsing="false" onAction="#sendToContact" text="Make Reservation" />
       <Button fx:id="reviewButton" layoutX="425.0" layoutY="343.0" mnemonicParsing="false" onAction="#addReview" text="Add Review" visible="false" />

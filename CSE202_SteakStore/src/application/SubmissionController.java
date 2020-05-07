@@ -11,18 +11,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import steakstore.Filter;
 import steakstore.Restaurant;
 import steakstore.Submission;
+
 /**
  * Controls the submission page of the application
+ * 
  * @author Danny, Grant, Jacob, Jak
  *
  */
 public class SubmissionController extends Main {
 	@FXML
 	Button goBackSubButton;
+
 	/**
 	 * Redirects user back to profile page
+	 * 
 	 * @throws Exception
 	 */
 	public void goBackSubButtonClick() throws Exception {
@@ -48,15 +53,17 @@ public class SubmissionController extends Main {
 	TextField logo;
 	@FXML
 	Button submitButton;
+
 	/**
 	 * Submits entered text to admin for review of restaurant
+	 * 
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
 	public void submitButtonClick() throws FileNotFoundException, IOException {
-		if (name.getText().equals("") && locationAddress.getText().equals("") && hours.getText().equals("")
-				&& contact.getText().equals("") && searchTerms.getText().equals("") && website.getText().equals("")
-				&& menu.getText().equals("") && logo.getText().equals("")) {
+		if (name.getText().equals("") || locationAddress.getText().equals("") || hours.getText().equals("")
+				|| contact.getText().equals("") || searchTerms.getText().equals("") || website.getText().equals("")
+				|| menu.getText().equals("") || logo.getText().equals("")) {
 			// pop up prompting all fields to be filled
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Submission Error");
@@ -67,6 +74,12 @@ public class SubmissionController extends Main {
 			Submission newSubmission = new Submission(
 					new Restaurant(name.getText(), locationAddress.getText(), hours.getText(), contact.getText(),
 							website.getText(), menu.getText(), currentUser, logo.getText()));
+			String[] newFilters = searchTerms.getText().split(",");
+
+			for (String newFilter : newFilters) {
+				newSubmission.getRestaurant().addTerm(new Filter(newFilter));
+			}
+
 			boolean exists = false;
 			for (Restaurant restaurant : restaurants) {
 				if (restaurant.getInfo()[0].equals(newSubmission.getRestaurant().getInfo()[0])
@@ -91,7 +104,7 @@ public class SubmissionController extends Main {
 				alert.setContentText(
 						"Your restaurant has been submitted. Returning you to your profile. Please check your profile to see the status of your submission.");
 				alert.showAndWait();
-				
+
 				Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 				submitButton.getScene().setRoot(root);
 			}

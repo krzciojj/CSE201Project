@@ -55,6 +55,7 @@ public class RestaurantController extends CatalogController implements Initializ
 			Stage stage = new Stage();
 			stage.setTitle("Menu");
 			stage.setScene(new Scene(menu, 700, 600));
+			stage.setResizable(false);
 			stage.show();
 		}
 	}
@@ -70,6 +71,7 @@ public class RestaurantController extends CatalogController implements Initializ
 		Stage stage = new Stage();
 		stage.setTitle("Review");
 		stage.setScene(new Scene(back, 600, 300));
+		stage.getScene().getStylesheets().add("application/application.css");
 		stage.show();
 		reviewButton.setVisible(false);
 	}

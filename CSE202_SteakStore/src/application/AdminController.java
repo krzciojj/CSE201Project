@@ -68,6 +68,8 @@ public class AdminController extends CatalogController implements Initializable 
 			Stage stage = new Stage();
 			stage.setTitle("Preview");
 			stage.setScene(new Scene(root));
+			stage.setResizable(false);
+			stage.getScene().getStylesheets().add("application/application.css");
 			stage.show();
 	
 			currentRestaurant = temp;
