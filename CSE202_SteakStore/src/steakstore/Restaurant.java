@@ -92,7 +92,7 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return The average of all the review scores
 	 */
-	double getAverageScore() {
+	public double getAverageScore() {
 		double avg = 0.0;
 		for (int i = 0; i < reviews.size(); i++)
 			avg += reviews.get(i).getScore();

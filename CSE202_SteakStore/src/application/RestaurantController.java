@@ -75,6 +75,8 @@ public class RestaurantController extends CatalogController implements Initializ
 	Text hoursText;
 	@FXML
 	ImageView viewImage;
+	@FXML 
+	Text stars;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -101,6 +103,9 @@ public class RestaurantController extends CatalogController implements Initializ
 			hoursText.setText(currentRestaurant.getInfo()[2]);
 			String path = currentRestaurant.getInfo()[6];
 			viewImage.setImage(new Image(path));
+			if (currentRestaurant.getAverageScore() > 0) {
+				stars.setText("" + currentRestaurant.getAverageScore());
+			}
 		}
 	}
 }
