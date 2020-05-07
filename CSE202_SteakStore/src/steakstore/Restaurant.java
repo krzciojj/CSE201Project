@@ -88,6 +88,7 @@ public class Restaurant implements Serializable {
 	}
 
 	/**
+	 * @author Azura
 	 * Averages all the review scores for the restaurant
 	 * 
 	 * @return The average of all the review scores

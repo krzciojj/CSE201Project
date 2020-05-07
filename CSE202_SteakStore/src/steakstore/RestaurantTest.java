@@ -7,14 +7,6 @@ import org.junit.jupiter.api.Test;
 class RestaurantTest {
 	
 	@Test
-	void testRestaurant() {
-		User john = new User("john", "Jacob", "jingle");
-		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john, "www.");
-
-		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo());
-	}
-
-	@Test
 	void testAddReview() {
 		User john = new User("john", "Jacob", "jingle");
 		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john, "www.");
@@ -32,7 +24,7 @@ class RestaurantTest {
 		User john = new User("john", "Jacob", "jingle");
 		Restaurant wendys = new Restaurant("Wendys", "Oxford", "7:30AM - 10:30PM", "John", "www.wendys.com", "menu", john, "www.");
 
-		assertEquals("Oxford Wendys John www.wendys.com menu", wendys.getInfo()[0] + " " + wendys.getInfo()[1] + " " + wendys.getInfo()[2] + " " + wendys.getInfo()[3] + " " + wendys.getInfo()[4] + " " + wendys.getInfo()[5]);
+		assertEquals("Wendys Oxford 7:30AM - 10:30PM John www.wendys.com menu", wendys.getInfo()[0] + " " + wendys.getInfo()[1] + " " + wendys.getInfo()[2] + " " + wendys.getInfo()[3] + " " + wendys.getInfo()[4] + " " + wendys.getInfo()[5]);
 	}
 
 	// we need to add getters and setters
