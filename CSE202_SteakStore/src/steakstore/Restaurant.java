@@ -99,4 +99,8 @@ public class Restaurant implements Serializable {
 		avg /= reviews.size();
 		return avg;
 	}
+	
+	public ArrayList<Review> getReviews(){
+		return reviews;
+	}
 }

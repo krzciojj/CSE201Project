@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import steakstore.Restaurant;
+import steakstore.Review;
 
 public class RestaurantController extends CatalogController implements Initializable {
 
@@ -57,6 +58,7 @@ public class RestaurantController extends CatalogController implements Initializ
 		stage.setTitle("Review");
 		stage.setScene(new Scene(back, 600, 300));
 		stage.show();
+		reviewButton.setVisible(false);
 	}
 	
 	public void sendToContact() throws Exception {
@@ -82,9 +84,16 @@ public class RestaurantController extends CatalogController implements Initializ
 				returnButton.setVisible(true);
 				if (currentUser != null){
 					reviewButton.setVisible(true);
+					for (Review review : currentRestaurant.getReviews()) {
+						if(review.getAuthor().getUsername().equals(currentUser.getUsername())){
+							reviewButton.setVisible(false);
+						}
+						
+					}
 				}
 			}
 		}
+		
 		if (currentRestaurant != null) {
 			currRest = currentRestaurant;
 			titleText.setText(currentRestaurant.getInfo()[0]);
@@ -92,8 +101,6 @@ public class RestaurantController extends CatalogController implements Initializ
 			hoursText.setText(currentRestaurant.getInfo()[2]);
 			String path = currentRestaurant.getInfo()[6];
 			viewImage.setImage(new Image(path));
-			
-			// getHostServices().showDocument(currentRestaurant.getInfo()[6]);
 		}
 	}
 }

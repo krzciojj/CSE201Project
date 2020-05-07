@@ -1,10 +1,13 @@
 package steakstore;
+
+import java.io.Serializable;
+
 /**
  * This class helps main access review scores
  * @author Danny, Grant, Jacob, Jak
  *
  */
-public class Review {
+public class Review implements Serializable{
 	int score;
 	User author;
 	/**
@@ -24,6 +27,10 @@ public class Review {
 	 */
 	public int getScore() {
 		return score;
+	}
+	
+	public User getAuthor() {
+		return author;
 	}
 
 }
