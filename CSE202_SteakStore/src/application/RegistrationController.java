@@ -55,15 +55,29 @@ public class RegistrationController extends Main {
 	public void registerButtonClick() throws Exception {
 		if (!name.getText().equals("") && !email.getText().equals("") && !password.getText().equals("")) {
 			User newUser = new User(name.getText(), password.getText(), email.getText());
-			addUser(newUser);
-			// pop up saying successfully registered and takes user back to login menu
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Sucessfully Registered");
-			alert.setHeaderText("Congratulations");
-			alert.setContentText("Sending you back to the login page");
-			alert.showAndWait();
-			Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-			goBackButton.getScene().setRoot(root);
+			boolean userExists = false;
+			for(User user : users) {
+				if(user.getUsername().equals(newUser.getUsername())) {
+					userExists = true;
+				}
+			}
+			if(userExists) {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Registration Unsuccessful");
+				alert.setHeaderText("User Already Exists");
+				alert.setContentText("Please enter unique credentials.");
+				alert.showAndWait();
+			} else {
+				addUser(newUser);
+				// pop up saying successfully registered and takes user back to login menu
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Sucessfully Registered");
+				alert.setHeaderText("Congratulations");
+				alert.setContentText("Sending you back to the login page");
+				alert.showAndWait();
+				Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+				goBackButton.getScene().setRoot(root);
+			}
 		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Registration Unsuccessful");
