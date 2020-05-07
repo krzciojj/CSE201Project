@@ -57,15 +57,15 @@ public class Main extends Application implements Serializable {
 			readRestaurantData();
 		else {
 			Restaurant test = new Restaurant("Wendy's", "5142 College Corner Pike", "6:30AM-9:30PM",
-					"https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "asfda",
+					"https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike", "https://locations.wendys.com/united-states/oh/oxford/5142-college-corner-pike",
 					"https://www.wendys.com/explore-our-food", admin,
 					"https://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/wendys_012716getty_0.jpg?itok=f1BCBVqg");
 			test.addTerm(new Filter("Fast Food"));
-			Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "a1423423a",
-					"a1423423a", "https://www.mcdonalds.com/us/en-us/full-menu.html", admin,
-					"https://www.mcdonalds.com/content/dam/usa/nfl/assets/nav/arches-logo_108x108.jpg");
+			Restaurant test2 = new Restaurant("McDonald's", "1900 University Ave,", "Open 24 Hours", "https://www.mcdonalds.com/us/en-us.html",
+					"https://www.mcdonalds.com/us/en-us.html", "https://www.mcdonalds.com/us/en-us/full-menu.html", admin,
+					"https://cdn.mos.cms.futurecdn.net/xDGQ9dbLmMpeEqhiWayMRB.jpg");
 			test2.addTerm(new Filter("Fast Food"));
-			Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "a1523423a",
+			Restaurant test3 = new Restaurant("Chipotle", "1 W High St", "10:45AM-10PM", "aasdfsa", "https://www.chipotle.com/",
 					"https://www.chipotle.com/", admin,
 					"https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/220px-Chipotle_Mexican_Grill_logo.svg.png");
 			test3.addTerm(new Filter("Mexican"));
@@ -92,7 +92,7 @@ public class Main extends Application implements Serializable {
 			readSubmissionData();
 		else {
 			Submission submission = new Submission(new Restaurant("Steak 'n Shake", "9414 Civic Centre Blvd",
-					"6:00am - 12am", "513-759-5888", "https://www.steaknshake.com/",
+					"6:00am - 12am", "https://www.steaknshake.com/", "https://www.steaknshake.com/",
 					"https://www.steaknshake.com/select-location/",
 					admin,
 					"https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png"));

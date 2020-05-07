@@ -10,33 +10,32 @@
 
 <Pane id="background" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfileController">
    <children>
-      <Text id="titleText" fx:id="titleText" layoutX="232.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="136.3046875">
-         <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="14.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ImageView fitHeight="85.0" fitWidth="141.0" layoutX="44.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="87.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="14.0" layoutY="85.0" stroke="#ece6d8" strokeType="INSIDE" style="-fx-arc-width: 0px;" width="200.0" />
+      <Text layoutX="80.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="33.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+      <Text layoutX="33.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="58.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="34.908203125">
+      <Text layoutX="34.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="34.908203125">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
       <Button fx:id="submissionButton" layoutX="33.0" layoutY="322.0" mnemonicParsing="false" onAction="#submissionButtonClick" text="Restaurant Submission" />
-      <Text fx:id="username" layoutX="110.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="84.13671875" />
-      <Text fx:id="email" layoutX="110.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="84.13671875" />
+      <Text fx:id="username" layoutX="35.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="161.13671875" />
+      <Text fx:id="email" layoutX="35.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="161.13671875" />
       <Button fx:id="returnToCatalogButton" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnToCatalogButtonClick" text="Return to Catalog" />
       <Button fx:id="reviewButton" layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#reviewButtonClick" text="Review Submissions" visible="false" />
       <ListView fx:id="submissionList" focusTraversable="false" layoutX="268.0" layoutY="85.0" prefHeight="200.0" prefWidth="284.0" />
+      <Label layoutX="259.0" layoutY="19.0" styleClass="titleText" text="Profile" textFill="#eb6e23">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
