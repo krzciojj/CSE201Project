@@ -17,6 +17,6 @@
       <Button fx:id="preview" layoutX="55.0" layoutY="188.0" mnemonicParsing="false" onAction="#previewButtonClick" text="Preview" />
       <Button fx:id="accept" layoutX="107.0" layoutY="291.0" mnemonicParsing="false" onAction="#acceptSubmission" text="Accept" />
       <Button fx:id="deny" layoutX="112.0" layoutY="329.0" mnemonicParsing="false" onAction="#denySubmission" text="Deny" />
-      <Button fx:id="clearButton" layoutX="526.0" layoutY="46.0" mnemonicParsing="false" onAction="#clearButtonClick" text="Clear" />
+      <Button fx:id="clearButton" layoutX="505.0" layoutY="46.0" mnemonicParsing="false" onAction="#clearButtonClick" text="Unselect" />
    </children>
 </Pane>

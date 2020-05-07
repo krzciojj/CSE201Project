@@ -110,10 +110,12 @@ public class AdminController extends CatalogController implements Initializable 
  * @throws IOException
  */
 	public void acceptSubmission() throws FileNotFoundException, IOException {
-		currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(1);
-		addRestaurant(currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).getRestaurant());
-		searchButtonClick();
-		createSubmissionData();
+		if(submissionsList.getSelectionModel().getSelectedIndex() > -1) {
+			currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(1);
+			addRestaurant(currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).getRestaurant());
+			searchButtonClick();
+			createSubmissionData();
+		}
 	}
 /**
  * Rejects a submission
@@ -121,9 +123,11 @@ public class AdminController extends CatalogController implements Initializable 
  * @throws IOException
  */
 	public void denySubmission() throws FileNotFoundException, IOException {
-		currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(-1);
-		searchButtonClick();
-		createSubmissionData();
+		if(submissionsList.getSelectionModel().getSelectedIndex() > -1) {
+			currentSubmissions.get(submissionsList.getSelectionModel().getSelectedIndex()).setStatus(-1);
+			searchButtonClick();
+			createSubmissionData();
+		}
 	}
 /**
  * Adds submission to the list of current submissions
