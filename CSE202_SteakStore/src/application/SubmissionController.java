@@ -13,11 +13,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import steakstore.Restaurant;
 import steakstore.Submission;
-
+/**
+ * Controls the submission page of the application
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class SubmissionController extends Main {
 	@FXML
 	Button goBackSubButton;
-
+	/**
+	 * Redirects user back to profile page
+	 * @throws Exception
+	 */
 	public void goBackSubButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
 		goBackSubButton.getScene().setRoot(root);
@@ -41,7 +48,11 @@ public class SubmissionController extends Main {
 	TextField logo;
 	@FXML
 	Button submitButton;
-
+	/**
+	 * Submits entered text to admin for review of restaurant
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void submitButtonClick() throws FileNotFoundException, IOException {
 		if (name.getText().equals("") && locationAddress.getText().equals("") && hours.getText().equals("")
 				&& contact.getText().equals("") && searchTerms.getText().equals("") && website.getText().equals("")

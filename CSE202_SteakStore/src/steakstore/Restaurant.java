@@ -3,7 +3,7 @@ package steakstore;
 import java.io.Serializable;
 import java.util.ArrayList;
 /**
- * Class used to create a restaurant as well as add reviews for the restaurant and categorize them by filters
+ * Used to create a restaurant as well as add reviews for the restaurant and categorize them by filters
  * @author Danny, Grant, Jacob, Jak
  *
  */

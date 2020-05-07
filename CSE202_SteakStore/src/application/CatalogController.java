@@ -21,10 +21,10 @@ import steakstore.Filter;
 import steakstore.Restaurant;
 
 /**
- * 
- * @author Danny, Grant, Jacob, Jak 
- * Used to implement the catalog
+ *   Used to implement the catalog
  *         pane on our application
+ * @author Danny, Grant, Jacob, Jak 
+
  */
 public class CatalogController extends Main implements Initializable {
 

@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import steakstore.Restaurant;
 import steakstore.Submission;
 /**
- * COntrols the admin side of the application
+ * Controls the admin side of the application
  * @author Danny, Grant, Jacob, Jak
  *
  */

@@ -22,7 +22,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-
+/**
+ * Main class that runs entire application
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 @SuppressWarnings("serial")
 public class Main extends Application implements Serializable {
 
@@ -36,7 +40,12 @@ public class Main extends Application implements Serializable {
 
 	public static User currentUser; // currently logged in user
 	public static User admin = new User("admin", "abc123", "admin@email.com", true);
-
+	/**
+	 * Calls on other methods to run application. Adds URLs to restaurants to be used in application.
+	 * @param args
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		File temp = new File("restaurants.dat");
 		File temp2 = new File("users.dat");
@@ -99,7 +108,11 @@ public class Main extends Application implements Serializable {
 		launch(args);
 	}
 
-	/*********************** Read Data **********************/
+	/**
+	 * Reads restaurant data
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static void readRestaurantData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("restaurants.dat"));
 		while (true) {
@@ -111,7 +124,11 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Reads user data
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	public static void readUserData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("users.dat"));
 		while (true) {
@@ -123,7 +140,11 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Reads filter data
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	public static void readFilterData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("filters.dat"));
 		while (true) {
@@ -135,7 +156,11 @@ public class Main extends Application implements Serializable {
 			}
 		}
 	}
-
+/**
+ * Reads submission data
+ * @throws IOException
+ * @throws ClassNotFoundException
+ */
 	private static void readSubmissionData() throws IOException, ClassNotFoundException {
 		ObjectInputStream objectData = new ObjectInputStream(new FileInputStream("submissions.dat"));
 		while (true) {
@@ -148,7 +173,10 @@ public class Main extends Application implements Serializable {
 		}
 	}
 
-	/*********************** Add Data **********************/
+	/**
+	 * Adds user data
+	 * @param u the user to be added
+	 */
 	public static void addUser(User u) {
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -158,7 +186,10 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Adds restaurant data
+ * @param r the restaurant to be added
+ */
 	public static void addRestaurant(Restaurant r) {
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -168,7 +199,10 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Adds submission data
+ * @param r the submission to be add
+ */
 	public static void addSubmission(Submission r) {
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat", true);
 				AppendableObjectOutputStream objectOut = new AppendableObjectOutputStream(fileOut)) {
@@ -179,7 +213,11 @@ public class Main extends Application implements Serializable {
 		}
 	}
 
-	/*********************** Create/Update Data Files **********************/
+	/**
+	 * Creates and updates restaurant data
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static void createRestaurantData() throws FileNotFoundException, IOException {
 		new FileOutputStream("restaurants.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("restaurants.dat");
@@ -192,7 +230,11 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates and updates user data
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	public static void createUserData() throws FileNotFoundException, IOException {
 		new FileOutputStream("users.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("users.dat", true);
@@ -205,7 +247,11 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates and updates filter data
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	public static void createFilterData() throws FileNotFoundException, IOException {
 		new FileOutputStream("filters.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("filters.dat");
@@ -219,7 +265,11 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Creates and updates submission data
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	protected static void createSubmissionData() throws FileNotFoundException, IOException {
 		new FileOutputStream("submissions.dat").close();
 		try (FileOutputStream fileOut = new FileOutputStream("submissions.dat");
@@ -233,7 +283,9 @@ public class Main extends Application implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
+/**
+ * Starts up application and links css
+ */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("steakstore.fxml"));

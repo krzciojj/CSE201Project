@@ -20,7 +20,11 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import steakstore.Restaurant;
 import steakstore.Review;
-
+/**
+ * Controls the individual restaurant pages of the application
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class RestaurantController extends CatalogController implements Initializable {
 
 	@FXML
@@ -29,12 +33,17 @@ public class RestaurantController extends CatalogController implements Initializ
 	Button menuButton;
 	
 	Restaurant currRest;
-
+	/**
+	 * Redirects user back to catalog page
+	 */
 	public void returnButtonClick() throws Exception {
 		Parent back = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 		returnButton.getScene().setRoot(back);
 	}
-
+	/**
+	 * Redirects user to menu fetched from company website
+	 * @throws Exception
+	 */
 	public void seeMenuButtonClick() throws Exception {
 		if (currRest != null) {
 			HBox menu = new HBox();
@@ -52,6 +61,10 @@ public class RestaurantController extends CatalogController implements Initializ
 
 	@FXML
 	Button reviewButton;
+	/**
+	 * Assists with adding a review for a restaurant
+	 * @throws Exception
+	 */
 	public void addReview() throws Exception {
 		Parent back = FXMLLoader.load(getClass().getResource("review.fxml"));
 		Stage stage = new Stage();
@@ -60,13 +73,15 @@ public class RestaurantController extends CatalogController implements Initializ
 		stage.show();
 		reviewButton.setVisible(false);
 	}
-	
+	/**
+	 * Pulls up restaurant contact information
+	 * @throws Exception
+	 */
 	public void sendToContact() throws Exception {
 		if (currentRestaurant != null) {
 			getHostServices().showDocument(currentRestaurant.getInfo()[3]);
 		}
 	}
-
 	@FXML
 	Text titleText;
 	@FXML
@@ -77,7 +92,9 @@ public class RestaurantController extends CatalogController implements Initializ
 	ImageView viewImage;
 	@FXML 
 	Text stars;
-
+	/**
+	 * Initializes URL location and sets review button to visible if user is admin
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		for (Restaurant restaurant : restaurants) {

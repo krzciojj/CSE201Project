@@ -15,9 +15,9 @@ import javafx.stage.Stage;
 import steakstore.User;
 
 /**
- * 
- * @author Danny, Grant, Jacob, Jak Used to implement login functions on
+ * Used to implement login functions on
  *         application
+ * @author Danny, Grant, Jacob, Jak 
  */
 public class LoginController extends Main {
 	@FXML

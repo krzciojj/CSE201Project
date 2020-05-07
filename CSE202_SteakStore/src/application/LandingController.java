@@ -11,7 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 /**
  * Used to implement landing page of application
- * @author Danny
+ * @author Danny, Grant, Jacob, Jak
  *
  */
 public class LandingController extends Main implements Initializable {

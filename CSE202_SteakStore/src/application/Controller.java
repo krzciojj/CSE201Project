@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 /**
  * Used to implement main controls of application
- * @author Danny
+ * @author Danny, Grant, Jacob, Jak
  *
  */
 public class Controller {

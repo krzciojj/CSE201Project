@@ -3,7 +3,7 @@ package steakstore;
 import java.io.Serializable;
 
 /**
- * This class helps main access review scores
+ * Helps main class access review scores
  * @author Danny, Grant, Jacob, Jak
  *
  */
