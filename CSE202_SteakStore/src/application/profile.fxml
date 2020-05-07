@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfileController">
+<Pane id="background" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfileController">
    <children>
       <Text id="titleText" fx:id="titleText" layoutX="232.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="136.3046875">
          <font>
@@ -37,5 +37,6 @@
       <Text fx:id="email" layoutX="110.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="84.13671875" />
       <Button fx:id="returnToCatalogButton" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnToCatalogButtonClick" text="Return to Catalog" />
       <Button fx:id="reviewButton" layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#reviewButtonClick" text="Review Submissions" visible="false" />
+      <ListView fx:id="submissionList" focusTraversable="false" layoutX="268.0" layoutY="85.0" prefHeight="200.0" prefWidth="284.0" />
    </children>
 </Pane>

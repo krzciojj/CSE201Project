@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import steakstore.Submission;
 /**
  * Controls the profile page on the application
  * @author Danny, Grant, Jacob, Jak
@@ -25,6 +27,9 @@ public class ProfileController extends Main implements Initializable {
 	Button returnToCatalogButton;
 	@FXML
 	Button reviewButton;
+	@FXML
+	ListView<String> submissionList;
+	
 	/**
 	 * Opens an admin page to review a submission once clicked
 	 * @throws Exception
@@ -59,6 +64,10 @@ public class ProfileController extends Main implements Initializable {
 			email.setText(currentUser.getEmail());
 			if(currentUser.isAdmin())
 				reviewButton.setVisible(true);
+			for(Submission submission : submissions) {
+				if(submission.getRestaurant().getAuthor().getUsername().equals(currentUser.getUsername()))
+					submissionList.getItems().add(submission.getRestaurant().getInfo()[0] + ": " + submission.checkStatus());
+			}
 		}
 	}
 

@@ -46,7 +46,7 @@ public class Submission implements Serializable {
 	 *         reviewed, "Restaurant accepted" if the submission form was accepted,
 	 *         or "Restaurant was denied" if the submission form was denied
 	 */
-	String checkStatus() {
+	public String checkStatus() {
 		if (status == -1)
 			return "Restaurant was denied";
 		else if (status == 0)
