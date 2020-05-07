@@ -9,7 +9,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-
+/**
+ * Controls the profile page on the application
+ * @author Danny, Grant, Jacob, Jak
+ *
+ */
 public class ProfileController extends Main implements Initializable {
 	@FXML
 	Button submissionButton;
@@ -21,21 +25,33 @@ public class ProfileController extends Main implements Initializable {
 	Button returnToCatalogButton;
 	@FXML
 	Button reviewButton;
-	
+	/**
+	 * Opens an admin page to review a submission once clicked
+	 * @throws Exception
+	 */
 	public void reviewButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
 		reviewButton.getScene().setRoot(root);
 	}
-	
+	/**
+	 * Redirects user to page where user can submit a new restaurant once clicked
+	 * @throws Exception
+	 */
 	public void submissionButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("submission page.fxml"));
 		submissionButton.getScene().setRoot(root);
 	}
+	/**
+	 * Redirects user back to catalog once clicked
+	 * @throws Exception
+	 */
 	public void returnToCatalogButtonClick() throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("catalog.fxml"));
 		returnToCatalogButton.getScene().setRoot(root);
 	}
-
+/**
+ * initializes review button if user is admin
+ */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if(currentUser != null) {
