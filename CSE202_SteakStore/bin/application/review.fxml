@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewController">
+   <children>
+      <Button fx:id="starFive" layoutX="404.0" layoutY="186.0" mnemonicParsing="false" onAction="#addReview5" text="5 Star" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="145.0" />
+      <Button fx:id="starFour" layoutX="337.0" layoutY="186.0" mnemonicParsing="false" onAction="#addReview4" text="4 Star" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="212.0" />
+      <Button fx:id="starThree" layoutX="274.0" layoutY="186.0" mnemonicParsing="false" onAction="#addReview3" text="3 Star" AnchorPane.leftAnchor="274.0" AnchorPane.rightAnchor="275.0" />
+      <Button fx:id="starTwo" layoutX="205.0" layoutY="186.0" mnemonicParsing="false" onAction="#addReview2" prefHeight="27.0" prefWidth="51.0" text="2 Star" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="344.0" />
+      <Button fx:id="starOne" layoutX="136.0" layoutY="186.0" mnemonicParsing="false" onAction="#addReview1" text="1 Star" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="415.0" />
+      <Text layoutX="262.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review" wrappingWidth="75.22900390625" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="262.77099609375" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

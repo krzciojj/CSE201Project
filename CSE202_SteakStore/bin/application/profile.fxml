@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="background" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfileController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="14.0" layoutY="85.0" stroke="#ece6d8" strokeType="INSIDE" style="-fx-arc-width: 0px;" width="200.0" />
+      <Text layoutX="80.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="33.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="34.908203125">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Button fx:id="submissionButton" layoutX="33.0" layoutY="322.0" mnemonicParsing="false" onAction="#submissionButtonClick" text="Restaurant Submission" />
+      <Text fx:id="username" layoutX="35.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" wrappingWidth="161.13671875" />
+      <Text fx:id="email" layoutX="35.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="161.13671875" />
+      <Button fx:id="returnToCatalogButton" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onAction="#returnToCatalogButtonClick" text="Return to Catalog" />
+      <Button fx:id="reviewButton" layoutX="445.0" layoutY="322.0" mnemonicParsing="false" onAction="#reviewButtonClick" text="Review Submissions" visible="false" />
+      <ListView fx:id="submissionList" focusTraversable="false" layoutX="268.0" layoutY="85.0" prefHeight="200.0" prefWidth="284.0" />
+      <Label layoutX="259.0" layoutY="19.0" styleClass="titleText" text="Profile" textFill="#eb6e23">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

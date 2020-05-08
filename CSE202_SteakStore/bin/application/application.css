@@ -1,0 +1,19 @@
+#background {
+	-fx-background-color:#faf8f4;
+}
+#titleText {
+	-fx-text-fill: #eb6e23;
+}
+.button {
+	-fx-border-color:  #faf8f4;
+	-fx-background-color:  #ece6d8;
+}
+.text-field {
+	-fx-border-color: #faf8f4;
+}
+.text-area {
+	-fx-border-color: #faf8f4;
+}
+.list-view {
+	-fx-border-color: #faf8f4;
+}

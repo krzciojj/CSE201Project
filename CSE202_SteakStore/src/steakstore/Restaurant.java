@@ -104,4 +104,8 @@ public class Restaurant implements Serializable {
 	public ArrayList<Review> getReviews(){
 		return reviews;
 	}
+	
+	public ArrayList<Filter> getFilter() {
+		return searchTerms;
+	}
 }
