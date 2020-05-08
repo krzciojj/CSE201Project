@@ -96,7 +96,7 @@ public class Main extends Application implements Serializable {
 					"https://www.steaknshake.com/select-location/",
 					admin,
 					"https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Steak_%27n_Shake_logo.svg/1200px-Steak_%27n_Shake_logo.svg.png"));
-
+			submission.getRestaurant().addTerm(new Filter("Fast Food"));
 			submissions.add(submission);
 		}
 		
