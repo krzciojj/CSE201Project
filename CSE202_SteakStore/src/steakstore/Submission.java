@@ -32,7 +32,7 @@ public class Submission implements Serializable {
 		return status;
 	}
 /**
- * Sets the staus of the restaurant
+ * Sets the status of the restaurant
  * @param s the status to be set
  */
 	public void setStatus(int s) {
@@ -47,7 +47,7 @@ public class Submission implements Serializable {
 	 *         or "Restaurant was denied" if the submission form was denied
 	 */
 	public String checkStatus() {
-		if (status == -1)
+		if (status < 0)
 			return "Restaurant was denied";
 		else if (status == 0)
 			return "Awaiting acceptance";
